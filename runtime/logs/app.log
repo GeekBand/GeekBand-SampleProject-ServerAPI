@@ -1,0 +1,2478 @@
+2015-08-15 00:14:09 [::1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'yii\web\Request::cookieValidationKey must be configured with a secret key.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php:1219
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php(1201): yii\web\Request->loadCookies()
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php(1287): yii\web\Request->getCookies()
+#2 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php(1266): yii\web\Request->loadCsrfToken()
+#3 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/helpers/BaseHtml.php(286): yii\web\Request->getCsrfToken()
+#4 /Library/WebServer/Documents/basic/views/layouts/main.php(20): yii\helpers\BaseHtml::csrfMetaTags()
+#5 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/View.php(325): require('/Library/WebSer...')
+#6 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/Library/WebSer...', Array)
+#7 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Controller.php(386): yii\base\View->renderFile('/Library/WebSer...', Array, Object(app\controllers\SiteController))
+#8 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Controller.php(372): yii\base\Controller->renderContent('<div class="sit...')
+#9 /Library/WebServer/Documents/basic/controllers/SiteController.php(52): yii\base\Controller->render('index')
+#10 [internal function]: app\controllers\SiteController->actionIndex()
+#11 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#13 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('', Array)
+#14 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('', Array)
+#15 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#17 {main}
+2015-08-15 00:14:09 [::1][-][-][info][application] $_COOKIE = [
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix) PHP/5.5.26'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '52267'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439597649.108
+    'REQUEST_TIME' => 1439597649
+]
+2015-08-15 00:14:09 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'Exception' with message 'Serialization of 'Closure' is not allowed' 
+
+in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2-debug/LogTarget.php:58
+
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2-debug/LogTarget.php(58): serialize(Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2-debug/LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#2 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/log/Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#3 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/log/Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#4 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\log\Logger->flush(true)
+#5 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidConfigException))
+#6 {main}
+2015-08-15 00:14:09 [::1][-][-][info][application] $_COOKIE = [
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix) PHP/5.5.26'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '52267'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439597649.108
+    'REQUEST_TIME' => 1439597649
+]
+2015-08-15 00:18:32 [::1][-][-][error][yii\base\ErrorException:32] exception 'yii\base\ErrorException' with message 'PHP Startup: Unable to load dynamic library '/usr/local/Cellar/php55-memcached/2.1.0/memcached.so' - dlopen(/usr/local/Cellar/php55-memcached/2.1.0/memcached.so, 9): image not found' in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 00:18:32 [::1][-][-][info][application] $_COOKIE = [
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix) PHP/5.5.26'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '52278'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439597912.558
+    'REQUEST_TIME' => 1439597912
+]
+2015-08-15 00:25:20 [::1][-][-][error][yii\base\ErrorException:32] exception 'yii\base\ErrorException' with message 'PHP Startup: Unable to load dynamic library '/usr/local/Cellar/php55-memcached/2.1.0/memcached.so' - dlopen(/usr/local/Cellar/php55-memcached/2.1.0/memcached.so, 9): image not found' in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 00:25:20 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix) PHP/5.5.26'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '52373'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439598320.767
+    'REQUEST_TIME' => 1439598320
+]
+2015-08-15 00:30:56 [::1][-][-][error][yii\base\ErrorException:32] exception 'yii\base\ErrorException' with message 'PHP Startup: Unable to load dynamic library '/usr/local/Cellar/php55-memcached/2.1.0/memcached.so' - dlopen(/usr/local/Cellar/php55-memcached/2.1.0/memcached.so, 9): image not found' in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 00:30:56 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix) PHP/5.5.26'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '52439'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439598656.24
+    'REQUEST_TIME' => 1439598656
+]
+2015-08-15 00:54:25 [::1][-][-][error][yii\base\ErrorException:32] exception 'yii\base\ErrorException' with message 'PHP Startup: Unable to load dynamic library '/usr/local/Cellar/php55-imagick/3.1.0RC2/imagick.so' - dlopen(/usr/local/Cellar/php55-imagick/3.1.0RC2/imagick.so, 9): image not found' in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 00:54:25 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '53911'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439600065.545
+    'REQUEST_TIME' => 1439600065
+]
+2015-08-15 02:10:52 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php:190
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(75): yii\web\Request->resolve()
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+2015-08-15 02:10:52 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54357'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439604652.426
+    'REQUEST_TIME' => 1439604652
+]
+2015-08-15 02:11:20 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php:190
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(75): yii\web\Request->resolve()
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+2015-08-15 02:11:20 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_ga' => 'GA1.1.1800537062.1439604297'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_ga=GA1.1.1800537062.1439604297; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54365'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439604680.198
+    'REQUEST_TIME' => 1439604680
+]
+2015-08-15 02:11:35 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php:190
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(75): yii\web\Request->resolve()
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+2015-08-15 02:11:35 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_gat' => '1'
+    '_csrf' => '6adec6eefc5ff9691e2b57c9cee3d5a8b1d04cf625f8b803e294515d3354815ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Xij_f-HowJlVKk8YArrhSgJL4tbj2OAB\";}'
+    '_ga' => 'GA1.1.1800537062.1439604297'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_gat=1; _csrf=6adec6eefc5ff9691e2b57c9cee3d5a8b1d04cf625f8b803e294515d3354815ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Xij_f-HowJlVKk8YArrhSgJL4tbj2OAB%22%3B%7D; _ga=GA1.1.1800537062.1439604297'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54374'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439604695.815
+    'REQUEST_TIME' => 1439604695
+]
+2015-08-15 02:12:03 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php:190
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(75): yii\web\Request->resolve()
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+2015-08-15 02:12:03 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_gat' => '1'
+    '_csrf' => '6adec6eefc5ff9691e2b57c9cee3d5a8b1d04cf625f8b803e294515d3354815ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Xij_f-HowJlVKk8YArrhSgJL4tbj2OAB\";}'
+    '_ga' => 'GA1.1.1800537062.1439604297'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_gat=1; _csrf=6adec6eefc5ff9691e2b57c9cee3d5a8b1d04cf625f8b803e294515d3354815ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Xij_f-HowJlVKk8YArrhSgJL4tbj2OAB%22%3B%7D; _ga=GA1.1.1800537062.1439604297'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54388'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439604723.26
+    'REQUEST_TIME' => 1439604723
+]
+2015-08-15 02:14:24 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Request.php:190
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(75): yii\web\Request->resolve()
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+2015-08-15 02:14:24 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54406'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/index.php'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439604864.241
+    'REQUEST_TIME' => 1439604864
+]
+2015-08-15 02:38:21 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\model\User' not found' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/rest/IndexAction.php:61
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:38:21 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54873'
+    'REDIRECT_URL' => '/basic/web/user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/user'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606301.374
+    'REQUEST_TIME' => 1439606301
+]
+2015-08-15 02:40:05 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'User' not found' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/rest/IndexAction.php:61
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:40:05 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54883'
+    'REDIRECT_URL' => '/basic/web/user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/user'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606405.351
+    'REQUEST_TIME' => 1439606405
+]
+2015-08-15 02:40:38 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'base\models\User' not found' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/rest/IndexAction.php:61
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:40:38 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54885'
+    'REDIRECT_URL' => '/basic/web/user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/user'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606438.177
+    'REQUEST_TIME' => 1439606438
+]
+2015-08-15 02:41:48 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/bb22dbda/css/bootstrap.css".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/bb22dbda...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:48 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/css,*/*;q=0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'HTTP_IF_NONE_MATCH' => '\"23fe6-51d4e727cf640\"'
+    'HTTP_IF_MODIFIED_SINCE' => 'Sat, 15 Aug 2015 00:14:09 GMT'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54891'
+    'REDIRECT_URL' => '/basic/web/assets/bb22dbda/css/bootstrap.css'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/bb22dbda/css/bootstrap.css'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606508.514
+    'REQUEST_TIME' => 1439606508
+]
+2015-08-15 02:41:48 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/b915e02f/jquery.js".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/b915e02f...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:48 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'HTTP_IF_NONE_MATCH' => 'W/\"3c72d-51d4e727cf640\"'
+    'HTTP_IF_MODIFIED_SINCE' => 'Sat, 15 Aug 2015 00:14:09 GMT'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54893'
+    'REDIRECT_URL' => '/basic/web/assets/b915e02f/jquery.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/b915e02f/jquery.js'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606508.514
+    'REQUEST_TIME' => 1439606508
+]
+2015-08-15 02:41:48 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/e5f76a99/yii.js".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/e5f76a99...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:48 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'HTTP_IF_NONE_MATCH' => 'W/\"3369-51d4e727cf640\"'
+    'HTTP_IF_MODIFIED_SINCE' => 'Sat, 15 Aug 2015 00:14:09 GMT'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54894'
+    'REDIRECT_URL' => '/basic/web/assets/e5f76a99/yii.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/e5f76a99/yii.js'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606508.514
+    'REQUEST_TIME' => 1439606508
+]
+2015-08-15 02:41:48 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/bb22dbda/js/bootstrap.js".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/bb22dbda...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:48 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'HTTP_IF_NONE_MATCH' => '\"10d1a-51d4e727cf640\"'
+    'HTTP_IF_MODIFIED_SINCE' => 'Sat, 15 Aug 2015 00:14:09 GMT'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54895'
+    'REDIRECT_URL' => '/basic/web/assets/bb22dbda/js/bootstrap.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/bb22dbda/js/bootstrap.js'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606508.524
+    'REQUEST_TIME' => 1439606508
+]
+2015-08-15 02:41:48 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "css/site.css".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('css/site.css', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:48 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/css,*/*;q=0.1'
+    'HTTP_IF_NONE_MATCH' => '\"554-51c97dbb0f4c0\"'
+    'HTTP_IF_MODIFIED_SINCE' => 'Wed, 05 Aug 2015 22:23:55 GMT'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54892'
+    'REDIRECT_URL' => '/basic/web/css/site.css'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/css/site.css'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606508.514
+    'REQUEST_TIME' => 1439606508
+]
+2015-08-15 02:41:54 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "css/site.css".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('css/site.css', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:54 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/css,*/*;q=0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54897'
+    'REDIRECT_URL' => '/basic/web/css/site.css'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/css/site.css'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606514.153
+    'REQUEST_TIME' => 1439606514
+]
+2015-08-15 02:41:54 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/b915e02f/jquery.js".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/b915e02f...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:54 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54900'
+    'REDIRECT_URL' => '/basic/web/assets/b915e02f/jquery.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/b915e02f/jquery.js'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606514.163
+    'REQUEST_TIME' => 1439606514
+]
+2015-08-15 02:41:54 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/bb22dbda/css/bootstrap.css".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/bb22dbda...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:54 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/css,*/*;q=0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54899'
+    'REDIRECT_URL' => '/basic/web/assets/bb22dbda/css/bootstrap.css'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/bb22dbda/css/bootstrap.css'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606514.155
+    'REQUEST_TIME' => 1439606514
+]
+2015-08-15 02:41:54 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/e5f76a99/yii.js".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/e5f76a99...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:54 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54901'
+    'REDIRECT_URL' => '/basic/web/assets/e5f76a99/yii.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/e5f76a99/yii.js'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606514.163
+    'REQUEST_TIME' => 1439606514
+]
+2015-08-15 02:41:54 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "assets/bb22dbda/js/bootstrap.js".' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('assets/bb22dbda...', Array)
+#1 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Library/WebServer/Documents/basic/web/index.php(12): yii\base\Application->run()
+#2 {main}
+2015-08-15 02:41:54 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/basic/web/site/about'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54898'
+    'REDIRECT_URL' => '/basic/web/assets/bb22dbda/js/bootstrap.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/assets/bb22dbda/js/bootstrap.js'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606514.154
+    'REQUEST_TIME' => 1439606514
+]
+2015-08-15 02:42:44 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\model\User' not found' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/rest/IndexAction.php:61
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:42:44 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54910'
+    'REDIRECT_URL' => '/basic/web/user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/user'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606564.895
+    'REQUEST_TIME' => 1439606564
+]
+2015-08-15 02:44:38 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Undefined constant 'app\controllers\app\models\User'' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/di/Container.php:366
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:44:38 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54973'
+    'REDIRECT_URL' => '/basic/web/user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/user'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606678.358
+    'REQUEST_TIME' => 1439606678
+]
+2015-08-15 02:45:20 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to undefined method app\models\User::find()' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/rest/IndexAction.php:61
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:45:20 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54975'
+    'REDIRECT_URL' => '/basic/web/user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/user'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606720.324
+    'REQUEST_TIME' => 1439606720
+]
+2015-08-15 02:47:15 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to undefined method app\models\User::find()' in /Library/WebServer/Documents/basic/vendor/yiisoft/yii2/rest/IndexAction.php:61
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:47:14 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/basic/web/index.php'
+    'REMOTE_PORT' => '54978'
+    'REDIRECT_URL' => '/basic/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/basic/web/users'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439606834.927
+    'REQUEST_TIME' => 1439606834
+]
+2015-08-15 02:51:28 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to undefined method app\models\User::find()' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/IndexAction.php:61
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-08-15 02:51:28 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '54988'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439607088.296
+    'REQUEST_TIME' => 1439607088
+]
+2015-08-15 02:53:13 [::1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php:579
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php(579): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php(529): yii\db\Connection->createPdoInstance()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php(836): yii\db\Connection->open()
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php(823): yii\db\Connection->getMasterPdo()
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(216): yii\db\Connection->getSlavePdo()
+#5 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(831): yii\db\Command->prepare(true)
+#6 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(385): yii\db\Command->queryInternal('fetchColumn', 0)
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Query.php(389): yii\db\Command->queryScalar()
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveQuery.php(339): yii\db\Query->queryScalar('COUNT(*)', NULL)
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Query.php(296): yii\db\ActiveQuery->queryScalar('COUNT(*)', NULL)
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/ActiveDataProvider.php(165): yii\db\Query->count('*', NULL)
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/BaseDataProvider.php(147): yii\data\ActiveDataProvider->prepareTotalCount()
+#12 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/ActiveDataProvider.php(105): yii\data\BaseDataProvider->getTotalCount()
+#13 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/BaseDataProvider.php(79): yii\data\ActiveDataProvider->prepareModels()
+#14 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/BaseDataProvider.php(92): yii\data\BaseDataProvider->prepare()
+#15 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Serializer.php(174): yii\data\BaseDataProvider->getModels()
+#16 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Serializer.php(143): yii\rest\Serializer->serializeDataProvider(Object(yii\data\ActiveDataProvider))
+#17 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Controller.php(97): yii\rest\Serializer->serialize(Object(yii\data\ActiveDataProvider))
+#18 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Controller.php(75): yii\rest\Controller->serializeData(Object(yii\data\ActiveDataProvider))
+#19 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(153): yii\rest\Controller->afterAction(Object(yii\rest\IndexAction), Object(yii\data\ActiveDataProvider))
+#20 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#21 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('user/index', Array)
+#22 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#24 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php:534
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php(836): yii\db\Connection->open()
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Connection.php(823): yii\db\Connection->getMasterPdo()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(216): yii\db\Connection->getSlavePdo()
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(831): yii\db\Command->prepare(true)
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(385): yii\db\Command->queryInternal('fetchColumn', 0)
+#5 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Query.php(389): yii\db\Command->queryScalar()
+#6 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveQuery.php(339): yii\db\Query->queryScalar('COUNT(*)', NULL)
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Query.php(296): yii\db\ActiveQuery->queryScalar('COUNT(*)', NULL)
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/ActiveDataProvider.php(165): yii\db\Query->count('*', NULL)
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/BaseDataProvider.php(147): yii\data\ActiveDataProvider->prepareTotalCount()
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/ActiveDataProvider.php(105): yii\data\BaseDataProvider->getTotalCount()
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/BaseDataProvider.php(79): yii\data\ActiveDataProvider->prepareModels()
+#12 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/data/BaseDataProvider.php(92): yii\data\BaseDataProvider->prepare()
+#13 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Serializer.php(174): yii\data\BaseDataProvider->getModels()
+#14 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Serializer.php(143): yii\rest\Serializer->serializeDataProvider(Object(yii\data\ActiveDataProvider))
+#15 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Controller.php(97): yii\rest\Serializer->serialize(Object(yii\data\ActiveDataProvider))
+#16 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/rest/Controller.php(75): yii\rest\Controller->serializeData(Object(yii\data\ActiveDataProvider))
+#17 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(153): yii\rest\Controller->afterAction(Object(yii\rest\IndexAction), Object(yii\data\ActiveDataProvider))
+#18 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#19 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('user/index', Array)
+#20 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#22 {main}
+Additional Information:
+
+2015-08-15 02:53:13 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55028'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439607193.479
+    'REQUEST_TIME' => 1439607193
+]
+2015-08-15 02:53:13 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'Exception' with message 'Serialization of 'Closure' is not allowed' 
+
+in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php:58
+
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php(58): serialize(Array)
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/log/Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/log/Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\log\Logger->flush(true)
+#5 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#6 {main}
+2015-08-15 02:53:13 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55028'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439607193.479
+    'REQUEST_TIME' => 1439607193
+]
+2015-08-15 03:24:29 [::1][-][-][error][yii\base\UnknownClassException] exception 'yii\base\UnknownClassException' with message 'Unable to find 'app\controllers\UserController' in file: /Library/WebServer/Documents/moranWeb/controllers/UserController.php. Namespace missing?' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/BaseYii.php:291
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('app\\controllers...')
+#1 [internal function]: spl_autoload_call('app\\controllers...')
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(563): class_exists('app\\controllers...')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(521): yii\base\Module->createControllerByID('user')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(449): yii\base\Module->createController('user/index')
+#5 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('user/index', Array)
+#6 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#8 {main}
+2015-08-15 03:24:29 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55156'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439609069.796
+    'REQUEST_TIME' => 1439609069
+]
+2015-08-15 03:26:35 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: id' in /Library/WebServer/Documents/moranWeb/controllers/UserController.php:137
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(137): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/Library/WebSer...', 137, Array)
+#1 [internal function]: app\controllers\UserController->actionIndex()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#5 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('user/index', Array)
+#6 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#8 {main}
+2015-08-15 03:26:35 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55165'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439609195.549
+    'REQUEST_TIME' => 1439609195
+]
+2015-08-15 03:26:35 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'Exception' with message 'Serialization of 'Closure' is not allowed' 
+
+in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php:58
+
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php(58): serialize(Array)
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/log/Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/log/Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\log\Logger->flush(true)
+#5 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#6 {main}
+2015-08-15 03:26:35 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+    '_gat' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546; _gat=1'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55165'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439609195.549
+    'REQUEST_TIME' => 1439609195
+]
+2015-08-15 03:29:23 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: datefilter' in /Library/WebServer/Documents/moranWeb/controllers/UserController.php:139
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(139): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/Library/WebSer...', 139, Array)
+#1 [internal function]: app\controllers\UserController->actionIndex()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#5 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('user/index', Array)
+#6 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#8 {main}
+2015-08-15 03:29:23 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55174'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439609363.858
+    'REQUEST_TIME' => 1439609363
+]
+2015-08-15 03:29:24 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'Exception' with message 'Serialization of 'Closure' is not allowed' 
+
+in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php:58
+
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php(58): serialize(Array)
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2-debug/LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/log/Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/log/Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\log\Logger->flush(true)
+#5 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#6 {main}
+2015-08-15 03:29:23 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_gat' => '1'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _gat=1; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55174'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439609363.858
+    'REQUEST_TIME' => 1439609363
+]
+2015-08-15 03:37:50 [::1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'age' in 'field list'' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php:837
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(837): PDOStatement->execute()
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(359): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(146): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\UserController->actionIndex()
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#5 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#6 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#10 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'age' in 'field list'
+The SQL being executed was: SELECT `id`, `name`, `age`, `createdAt`, `updatedAt` FROM `user` LIMIT 10' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php:628
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'SELECT `id`, `n...')
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(359): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(146): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\UserController->actionIndex()
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#5 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#6 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#10 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'age' in 'field list'
+)
+
+2015-08-15 03:37:50 [::1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB\";}'
+    '_ga' => 'GA1.1.143058796.1413738546'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4'
+    'HTTP_COOKIE' => '_csrf=57de7a51228c9b86db0b57b8ccf9fc64b175f88c4a8638feeb2b27e09463f25ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ZFd2xEZzg4mao7rL49X6yEKWTrppsFvB%22%3B%7D; _ga=GA1.1.143058796.1413738546'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55189'
+    'REDIRECT_URL' => '/moranWeb/web/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/users'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439609870.316
+    'REQUEST_TIME' => 1439609870
+]
+2015-08-15 04:20:31 [::1][-][-][error][yii\db\IntegrityException] exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php:781
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(781): PDOStatement->execute()
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\db\IntegrityException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT)' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php:628
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(791): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'name'
+)
+
+2015-08-15 04:20:31 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '44'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55490'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439612431.405
+    'REQUEST_TIME' => 1439612431
+]
+2015-08-15 04:24:16 [::1][-][-][error][yii\db\IntegrityException] exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php:781
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(781): PDOStatement->execute()
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\db\IntegrityException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT)' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php:628
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(791): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'name'
+)
+
+2015-08-15 04:24:16 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '46'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55494'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439612656.019
+    'REQUEST_TIME' => 1439612656
+]
+2015-08-15 04:32:33 [::1][-][-][error][yii\db\IntegrityException] exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php:781
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(781): PDOStatement->execute()
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\db\IntegrityException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT)' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php:628
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(791): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'name'
+)
+
+2015-08-15 04:32:33 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '46'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55556'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439613153.435
+    'REQUEST_TIME' => 1439613153
+]
+2015-08-15 04:49:28 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 04:49:28 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '14'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55783'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439614168.394
+    'REQUEST_TIME' => 1439614168
+]
+2015-08-15 04:50:55 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 04:50:55 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '35'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55799'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439614255.551
+    'REQUEST_TIME' => 1439614255
+]
+2015-08-15 04:51:41 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 04:51:41 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '35'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55803'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439614300.991
+    'REQUEST_TIME' => 1439614300
+]
+2015-08-15 04:59:21 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 04:59:21 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '35'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '55854'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439614761.133
+    'REQUEST_TIME' => 1439614761
+]
+2015-08-15 05:38:09 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 05:38:09 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '14'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '56753'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439617089.1
+    'REQUEST_TIME' => 1439617089
+]
+2015-08-15 05:41:50 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 05:41:49 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '33'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '56855'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439617309.947
+    'REQUEST_TIME' => 1439617309
+]
+2015-08-15 05:48:12 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 05:48:11 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '14'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '57110'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439617691.964
+    'REQUEST_TIME' => 1439617691
+]
+2015-08-15 06:47:25 [::1][-][-][error][yii\db\IntegrityException] exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php:781
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(781): PDOStatement->execute()
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\db\IntegrityException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'name'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT)' in /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php:628
+Stack trace:
+#0 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Command.php(791): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/Schema.php(448): yii\db\Command->execute()
+#2 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(454): yii\db\Schema->insert('<span class="st...', '[]')
+#3 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/ActiveRecord.php(424): yii\db\ActiveRecord->insertInternal('<span class="ke...')
+#4 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/db/BaseActiveRecord.php(593): yii\db\ActiveRecord->insert('<span class="ke...', '<span class="ke...')
+#5 /Library/WebServer/Documents/moranWeb/controllers/UserController.php(215): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\controllers\UserController->actionCreate()
+#7 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#9 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#10 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#11 /Library/WebServer/Documents/moranWeb/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Library/WebServer/Documents/moranWeb/web/index.php(12): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'name'
+)
+
+2015-08-15 06:47:25 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '14'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '57784'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439621245.112
+    'REQUEST_TIME' => 1439621245
+]
+2015-08-15 06:47:25 [::1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Bad Request: Invalid JSON data in request body: Syntax error.
+2015-08-15 06:47:25 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_USER_AGENT' => 'curl/7.37.1'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '14'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Library/WebServer/Documents/moranWeb/web/index.php'
+    'REMOTE_PORT' => '57784'
+    'REDIRECT_URL' => '/moranWeb/web/user/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/moranWeb/web/user/create'
+    'SCRIPT_NAME' => '/moranWeb/web/index.php'
+    'PHP_SELF' => '/moranWeb/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439621245.112
+    'REQUEST_TIME' => 1439621245
+]
