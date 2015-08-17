@@ -6,320 +6,119 @@
  *| |_| | (_) | | | | |_|  __/ (_| | | | | | (__
  *|____/ \___/|_| |_|\__|_|   \__,_|_| |_|_|\___|
  *
- * Author: diaoshoujun
- * Date: 15/8/15
- * Time: 上午9:19
+ * Author: diaosj
+ * Date: 15/8/16
+ * Time: 下午8:35
  */
 
-/*
- * Yii generic REST feature (ActiveController)
 namespace app\controllers;
 
-use yii\rest\ActiveController;
-
-class UserController extends ActiveController
-{
-    public $modelClass = 'app\models\User';
-}*/
-
-//namespace app\modules\api\controllers;
-namespace app\controllers;
-
-use Yii;
-use app\models\User;
-//use yii\data\ActiveDataProvider;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use app\components\CJson;
+use app\components\Util;
 use yii\db\Query;
+use yii\rest\ActiveController;
+use yii\web\User;
+use app\models\LoginForm;
 
-class UserController extends Controller
-{
+class UserController extends ActiveController {
+    public $modelClass = 'app\models\User';
+    public $serializer = [
+        'class' => 'yii\rest\Serializer',
+        'collectionEnvelope' => 'items',
+    ];
 
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'index' => ['get'],
-                    'view' => ['get'],
-                    //'create' => ['get'],
-                    'create' => ['post'],
-                    'update' => ['post'],
-                    'delete' => ['delete'],
-                    'deleteall' => ['post'],
-                ],
-
-            ]
-        ];
-    }
-
-
-    public function beforeAction($event)
-    {
-        $action = $event->id;
-        if (isset($this->actions[$action])) {
-            $verbs = $this->actions[$action];
-        } elseif (isset($this->actions['*'])) {
-            $verbs = $this->actions['*'];
-        } else {
-            return $event->isValid;
-        }
-        $verb = Yii::$app->getRequest()->getMethod();
-
-        $allowed = array_map('strtoupper', $verbs);
-
-        if (!in_array($verb, $allowed)) {
-
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Method not allowed'),
-                JSON_PRETTY_PRINT);
+    public function actionLogin() {
+        $ok = 0;
+        //$post = $_POST;
+        $post = $_REQUEST;
+        if (empty($post) or empty($post['username']) or empty($post['password'])) {
+            //TODO Unable to locate message source for category 'Global'?
+            //$msg = \Yii::t('Global', 'Wrong Params');
+            $msg = 'Wrong Params';
+            //TODO class 'CJSON' not found?
+            //echo CJson::encode(compact('ok', 'msg'));
+            echo json_encode(compact('ok', 'msg'));
             exit;
-
         }
 
-        return true;
-    }
-
-    /*
-     * URL: api/user/index
-     * method:GET
-     *
-     * params:
-                {
-                  "page":1,
-                  "limit":5,
-                  "sort":"id",
-                  "order":false,
-                  "filter":{}
-                      "dateFilter":{"from":"2014-09-04","to":"2014-09-05"}
-                 }
-
-
-     */
-
-    public function actionIndex()
-    {
-
-        $params = $_REQUEST;
-        $filter = array();
-        $sort = "";
-
-        $page = 1;
-        $limit = 10;
-
-        if (isset($params['page'])) {
-            $page = $params['page'];
-        }
-
-
-        if (isset($params['limit'])) {
-            $limit = $params['limit'];
-        }
-
-        $offset = $limit * ($page - 1);
-
-
-        /* Filter elements */
-        if (isset($params['filter'])) {
-            $filter = (array)json_decode($params['filter']);
-        }
-
-        if (isset($params['datefilter'])) {
-            $datefilter = (array)json_decode($params['datefilter']);
-        }
-
-
-        if (isset($params['sort'])) {
-            $sort = $params['sort'];
-            if (isset($params['order'])) {
-                if ($params['order'] == "false") {
-                    $sort .= " desc";
-                } else {
-                    $sort .= " asc";
-                }
-
-            }
-        }
-
-
-        $query = new Query;
-        $query->offset($offset)
-            ->limit($limit)
-            ->from('user')
-            //->andFilterWhere(['like', 'id', $filter['id']])
-            //->andFilterWhere(['like', 'name', $filter['name']])
-            //->andFilterWhere(['like', 'age', $filter['age']])
-            ->orderBy($sort)
-            ->select("*");
-
-        /*if ($datefilter['from']) {
-            $query->andWhere("createdAt >= '" . $datefilter['from'] . "' ");
-        }
-        if ($datefilter['to']) {
-            $query->andWhere("createdAt <= '" . $datefilter['to'] . "'");
+        //var_dump($post);exit;
+        /*$model = new LoginForm();
+        if ($model->load($post) && $model->login()) {
+        //if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $ok = 1;
+            $msg = 'Login Success';
         }*/
+        $query = new Query();
+        $query->from('user')
+            ->where('name = :username', [':username' => $post['username']])
+            ->select('*');
         $command = $query->createCommand();
-        $models = $command->queryAll();
-
-        $totalItems = $query->count();
-
-        $this->setHeader(200);
-
-        echo json_encode(array('status' => 1, 'data' => $models, 'totalItems' => $totalItems), JSON_PRETTY_PRINT);
-
-    }
-
-    /*
-     * Request:
-           URL: api/user/view/30
-    method:GET
-
-
-     */
-    public function actionView($id)
-    {
-
-        $model = $this->findModel($id);
-
-        $this->setHeader(200);
-        echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
-
-    }
-
-    /*
-     * Request:
-
-            URL:  api/user/create
-     method:POST
-params:
-             {
-              "name":"abc",
-              "email":"test@test.com",
-            }
-     */
-    public function actionCreate()
-    {
-        //Yii::$app->request->getParams();
-        $params = $_POST;
-
-        $inputStream = file_get_contents('php://input');
-        $params = json_decode($inputStream, true);
-
-        /*//test
-        $params['name'] = 'testRegister';
-        $params['email'] = 'test@test.com';*/
-
-        $model = new User();
-        $model->attributes = $params;
-
-
-        if ($model->save()) {
-
-            $this->setHeader(200);
-            echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
-
-        } else {
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
+        $record = $command->queryOne();
+        //var_dump($record['password'], $post['password']);exit;
+        if ($record['password'] == Util::hashPassword($post['password'])) {
+            $ok = 1;
+            $msg = 'Login Success';
         }
 
+        echo json_encode(compact('ok', 'msg'));
+        exit;
     }
 
-
-    public function actionUpdate($id)
-    {
-        $params = $_REQUEST;
-
-        $model = $this->findModel($id);
-
-        $model->attributes = $params;
-        if ($model->save()) {
-
-            $this->setHeader(200);
-            echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
-
-        } else {
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
-        }
-
-    }
-
-    public function actionDelete($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->delete()) {
-            $this->setHeader(200);
-            echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
-
-        } else {
-
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
-        }
-    }
-
-    public function actionDeleteall()
-    {
-        $ids = json_decode($_REQUEST['ids']);
-
-        $data = array();
-
-        foreach ($ids as $id) {
-            $model = $this->findModel($id);
-
-            if ($model->delete()) {
-                $data[] = array_filter($model->attributes);
-            } else {
-                $this->setHeader(400);
-                echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors),
-                    JSON_PRETTY_PRINT);
-                return;
-            }
-        }
-
-        $this->setHeader(200);
-        echo json_encode(array('status' => 1, 'data' => $data), JSON_PRETTY_PRINT);
-    }
-
-    protected function findModel($id)
-    {
-        if (($model = User::findOne($id)) !== null) {
-            return $model;
-        } else {
-
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Bad request'), JSON_PRETTY_PRINT);
+    public function actionRegister() {
+        $ok = 0;
+        //$post = $_POST;
+        $post = $_REQUEST;
+        if (empty($post)) {
+            echo json_encode(compact('ok', 'msg'));
             exit;
         }
+
+        $generateString = Util::generateString(6);
+
+        if ($post['username'] && $post['email'] && $post['password']) {
+            $email = trim($post['email']);
+            if (strlen($post['password']) < 6 || strlen($post['password']) > 20) {
+                //$msg = Util::t('passwordLength');
+                $msg = 'password length';
+                echo json_encode(compact('ok', 'msg'));
+                exit();
+            }
+            $password = Util::hashPassword(trim($post['password']));
+            //用户名是否注册
+            $model = new $this->modelClass;
+            $member_res = $model
+                ->find()
+                ->where('name = :name', array(':name' => $post['username']))
+                ->one();
+
+            if ($member_res) {
+                $msg = 'usernameIsHave';
+                echo json_encode(compact('ok', 'msg'));
+                exit();
+            }
+            //邮箱是否注册
+            $member_res = $model
+                ->find()
+                ->where('email = :email', array(':email' => $post['email']))
+                ->one();
+            if ($member_res) {
+                $msg = 'emailIsHave';
+                echo json_encode(compact('ok', 'msg'));
+                exit();
+            }
+            $userName = trim($post['username']);
+
+            $memberRegister = new $model();
+            $memberRegister->name = $userName;
+            $memberRegister->email = $email;
+            $memberRegister->password = $password;
+            $res = $memberRegister->insert();
+            $ok = 1;
+            $msg = 'registerDone';
+        }
+
+        echo json_encode(compact('ok', 'msg'));
+        exit;
     }
 
-    private function setHeader($status)
-    {
-
-        $status_header = 'HTTP/1.1 ' . $status . ' ' . $this->_getStatusCodeMessage($status);
-        $content_type = "application/json; charset=utf-8";
-
-        header($status_header);
-        header('Content-type: ' . $content_type);
-        header('X-Powered-By: ' . "Nintriva <nintriva.com>");
-    }
-
-    private function _getStatusCodeMessage($status)
-    {
-        $codes = Array(
-            200 => 'OK',
-            400 => 'Bad Request',
-            401 => 'Unauthorized',
-            402 => 'Payment Required',
-            403 => 'Forbidden',
-            404 => 'Not Found',
-            500 => 'Internal Server Error',
-            501 => 'Not Implemented',
-        );
-        return (isset($codes[$status])) ? $codes[$status] : '';
-    }
 }

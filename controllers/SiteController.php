@@ -67,6 +67,28 @@ class SiteController extends Controller
         ]);
     }
 
+    /*public function actionLogin() {
+        $model = new LoginForm;
+
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+
+        if (isset($_POST['LoginForm'])) {
+            $model->attributes = $_POST['LoginForm'];
+            if ($model->validate() && $model->login()) {
+                $url = $this->createUrl(Yii::app()->user->returnUrl);
+                if ($url)
+                    $this->redirect($this->createUrl(Yii::app()->user->returnUrl));
+                else
+                    $this->redirect($this->createUrl("/stat/index"));
+            }
+        }
+
+        $this->render('login', array('model' => $model));
+    }*/
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
