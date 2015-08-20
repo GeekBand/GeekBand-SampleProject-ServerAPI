@@ -28,16 +28,13 @@ class UserController extends ActiveController {
         'collectionEnvelope' => 'items',
     ];
 
-    public function behaviors() {
-        $behaviors = parent::behaviors();
-        $behaviors['contentNegotiator']['formats'] = [
-                'application/json' => 'json',
-            //todo response not found?
-                //'application/json' => Response::FORMAT_JSON,
-        ];
-
-        return $behaviors;
-    }
+//    public function behaviors() {
+//        return ArrayHelper::merge(parent::behaviors(), [
+//            'authenticator' => [
+//                'class' => HttpBasicAuth::className(),
+//            ],
+//        ]);
+//    }
 
     public function init() {
         parent::init();
@@ -48,8 +45,6 @@ class UserController extends ActiveController {
         $actions = parent::actions();
 
         unset($actions['delete'], $actions['create']);
-
-//        $actions['index'] = '\app\controllers\IndexAction';
 
         return $actions;
     }
@@ -69,7 +64,7 @@ class UserController extends ActiveController {
             exit;
         }
 
-        if (empty($post['gbid']))
+        if (empty($post['gp']))
         {
             $sql = "SELECT * FROM user WHERE name = :username";
             $params = [
@@ -84,7 +79,7 @@ class UserController extends ActiveController {
                 WHERE u.name = :username AND p.name = :projectName";
             $params = [
                 ':username' => $post['username'],
-                ':projectName' => $post['gbid'],
+                ':projectName' => $post['gp'],
             ];
             $record = \Yii::$app->db->createCommand($sql, $params)->queryOne();
         }
@@ -107,11 +102,11 @@ class UserController extends ActiveController {
             exit;
         }
 
-        if ( ! empty($post['gbid']))
+        if ( ! empty($post['gp']))
         {
             $sql = "SELECT id FROM project WHERE name = :projectName";
             $params = [
-                ':projectName' => $post['gbid'],
+                ':projectName' => $post['gp'],
             ];
             $projectId = \Yii::$app->db->createCommand($sql, $params)->queryScalar();
         }
@@ -139,7 +134,7 @@ class UserController extends ActiveController {
                 ->one();
 
             if ($member_res) {
-                $msg = 'usernameExists';
+                $msg = 'usernameIsHave';
                 echo json_encode(compact('ok', 'msg'));
                 exit();
             }
@@ -149,7 +144,7 @@ class UserController extends ActiveController {
                 ->where('email = :email', array(':email' => $post['email']))
                 ->one();
             if ($member_res) {
-                $msg = 'emailExists';
+                $msg = 'emailIsHave';
                 echo json_encode(compact('ok', 'msg'));
                 exit();
             }
@@ -163,7 +158,7 @@ class UserController extends ActiveController {
             $memberRegister->created = date('Y-m-d H:i:s');
             $res = $memberRegister->insert();
             $ok = 1;
-            $msg = 'registerSuccess';
+            $msg = 'registerDone';
         }
 
         echo json_encode(compact('ok', 'msg'));
