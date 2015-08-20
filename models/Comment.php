@@ -5,25 +5,25 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "user".
+ * This is the model class for table "comment".
  *
- * @property integer $id
- * @property string $name
- * @property string $password
- * @property string $email
+ * @property string $id
+ * @property integer $shop_id
+ * @property integer $user_id
  * @property integer $project_id
- * @property string $avatar
+ * @property string $comment
+ * @property string $pic_link
  * @property string $created
  * @property string $modified
  */
-class User extends \yii\db\ActiveRecord
+class Comment extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'user';
+        return 'comment';
     }
 
     /**
@@ -32,12 +32,10 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['project_id'], 'integer'],
+            [['shop_id', 'user_id', 'project_id'], 'integer'],
+            [['comment'], 'string'],
             [['created', 'modified'], 'safe'],
-            [['name', 'email'], 'string', 'max' => 64],
-            [['password', 'avatar'], 'string', 'max' => 255],
-            [['name'], 'unique'],
-            [['email'], 'unique']
+            [['pic_link'], 'string', 'max' => 64]
         ];
     }
 
@@ -48,11 +46,11 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'password' => 'Password',
-            'email' => 'Email',
+            'shop_id' => 'Shop ID',
+            'user_id' => 'User ID',
             'project_id' => 'Project ID',
-            'avatar' => 'Avatar',
+            'comment' => 'Comment',
+            'pic_link' => 'Pic Link',
             'created' => 'Created',
             'modified' => 'Modified',
         ];
