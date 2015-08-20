@@ -16,9 +16,10 @@ namespace app\controllers;
 use app\components\CJson;
 use app\components\Util;
 use yii\db\Query;
+use yii\filters\auth\HttpBasicAuth;
+use yii\helpers\ArrayHelper;
 use yii\rest\ActiveController;
 use yii\web\User;
-use app\models\LoginForm;
 
 class UserController extends ActiveController {
     public $modelClass = 'app\models\User';
@@ -26,6 +27,27 @@ class UserController extends ActiveController {
         'class' => 'yii\rest\Serializer',
         'collectionEnvelope' => 'items',
     ];
+
+//    public function behaviors() {
+//        return ArrayHelper::merge(parent::behaviors(), [
+//            'authenticator' => [
+//                'class' => HttpBasicAuth::className(),
+//            ],
+//        ]);
+//    }
+
+    public function init() {
+        parent::init();
+        \Yii::$app->user->enableSession = false;
+    }
+
+    public function actions() {
+        $actions = parent::actions();
+
+        unset($actions['delete'], $actions['create']);
+
+        return $actions;
+    }
 
     public function actionLogin() {
         $ok = 0;
@@ -112,6 +134,7 @@ class UserController extends ActiveController {
             $memberRegister->name = $userName;
             $memberRegister->email = $email;
             $memberRegister->password = $password;
+            $memberRegister->created = date('Y-m-d H:i:s');
             $res = $memberRegister->insert();
             $ok = 1;
             $msg = 'registerDone';
