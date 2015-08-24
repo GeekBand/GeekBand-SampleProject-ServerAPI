@@ -65,6 +65,7 @@ class UserController extends ActiveController {
             $msg = 'Wrong Params';
             //TODO class 'CJSON' not found?
             //echo CJson::encode(compact('ok', 'msg'));
+            header("Content-Type: application/json");
             echo json_encode(compact('ok', 'msg'));
             exit;
         }
@@ -94,6 +95,7 @@ class UserController extends ActiveController {
             $msg = 'Login Success';
         }
 
+        header("Content-Type: application/json");
         echo json_encode(compact('ok', 'msg'));
         exit;
     }
@@ -103,6 +105,7 @@ class UserController extends ActiveController {
         //$post = $_POST;
         $post = $_REQUEST;
         if (empty($post)) {
+            header("Content-Type: application/json");
             echo json_encode(compact('ok', 'msg'));
             exit;
         }
@@ -127,6 +130,7 @@ class UserController extends ActiveController {
             if (strlen($post['password']) < 6 || strlen($post['password']) > 20) {
                 //$msg = Util::t('passwordLength');
                 $msg = 'password length';
+                header("Content-Type: application/json");
                 echo json_encode(compact('ok', 'msg'));
                 exit();
             }
@@ -140,6 +144,7 @@ class UserController extends ActiveController {
 
             if ($member_res) {
                 $msg = 'usernameExists';
+                header("Content-Type: application/json");
                 echo json_encode(compact('ok', 'msg'));
                 exit();
             }
@@ -150,6 +155,7 @@ class UserController extends ActiveController {
                 ->one();
             if ($member_res) {
                 $msg = 'emailExists';
+                header("Content-Type: application/json");
                 echo json_encode(compact('ok', 'msg'));
                 exit();
             }
@@ -166,6 +172,7 @@ class UserController extends ActiveController {
             $msg = 'registerSuccess';
         }
 
+        header("Content-Type: application/json");
         echo json_encode(compact('ok', 'msg'));
         exit;
     }

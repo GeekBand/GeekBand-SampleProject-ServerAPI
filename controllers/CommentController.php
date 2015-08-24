@@ -15,14 +15,14 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\User;
+use app\models\Comment;
 //use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\db\Query;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
 
     public function behaviors()
@@ -41,6 +41,7 @@ class UserController extends Controller
             ]
         ];
     }
+
 
     public function beforeAction($event)
     {
@@ -74,8 +75,6 @@ class UserController extends Controller
         $params = $_REQUEST;
         //TODO Calling unknown method: yii\web\Request::getParams() why?
         //$params = \Yii::$app->request->getParams();
-        var_dump($params);
-        exit;
         $filter = array();
         $sort = "";
 
@@ -120,7 +119,7 @@ class UserController extends Controller
         $query = new Query;
         $query->offset($offset)
             ->limit($limit)
-            ->from('user')
+            ->from('comment')
             //->andFilterWhere(['like', 'id', $filter['id']])
             //->andFilterWhere(['like', 'name', $filter['name']])
             //->andFilterWhere(['like', 'age', $filter['age']])
@@ -158,11 +157,7 @@ class UserController extends Controller
     {
         $params = $_POST;
 
-        //for curl
-        //$inputStream = file_get_contents('php://input');
-        //$params = json_decode($inputStream, true);
-
-        $model = new User();
+        $model = new Comment();
         $model->attributes = $params;
 
 
@@ -214,7 +209,7 @@ class UserController extends Controller
 
     protected function findModel($id)
     {
-        if (($model = User::findOne($id)) !== null) {
+        if (($model = Comment::findOne($id)) !== null) {
             return $model;
         } else {
 
