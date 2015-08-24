@@ -139,7 +139,7 @@ class CommentController extends Controller
 
         $this->setHeader(200);
 
-        echo json_encode(array('status' => 1, 'data' => $models, 'totalItems' => $totalItems), JSON_PRETTY_PRINT);
+        echo json_encode(array('status' => 1, 'data' => $models, 'totalItems' => $totalItems), JSON_UNESCAPED_UNICODE);
 
     }
 
