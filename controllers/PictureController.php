@@ -123,7 +123,7 @@ class PictureController extends Controller
         if ($model->save()) {
 
             $this->setHeader(200);
-            echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
+            echo json_encode(array('status' => 1, 'data' => ['node_id' => $model->node_id, 'pic_id' => $model->id]), JSON_PRETTY_PRINT);
             exit;
 
         } else {
