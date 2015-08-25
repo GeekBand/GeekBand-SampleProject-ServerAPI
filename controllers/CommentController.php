@@ -71,75 +71,48 @@ class CommentController extends Controller
 
     public function actionIndex()
     {
+        $request = Yii::$app->request;
 
-        $params = $_REQUEST;
-        //TODO Calling unknown method: yii\web\Request::getParams() why?
-        //$params = \Yii::$app->request->getParams();
-        $filter = array();
-        $sort = "";
+        $sql = "SELECT * FROM `comment` WHERE 1";
 
-        $page = 1;
-        $limit = 10;
-
-        if (isset($params['page'])) {
-            $page = $params['page'];
+        $node = $request->get('node');
+        if ($node) {
+            $sql .= " AND node_id = $node ";
         }
 
+        $countSql = "SELECT COUNT(*) FROM `comment` WHERE 1";
+        if ($node) {
+            $countSql .= " AND node_id = $node";
+        }
+        $totalItems = Yii::$app->db->createCommand($countSql)->queryScalar();
 
-        if (isset($params['limit'])) {
-            $limit = $params['limit'];
+        $sort = $request->get('sort');
+        if ($sort) {
+            $order = $request->get('order');
+            if (in_array(strtoupper($order), array('DESC', 'ASC'))){
+                $sort .= " $order";
+            }
+            $sql .= $sort;
+        }
+
+        $page = $request->get('page');
+        if (empty($page)) {
+            $page = 1;
+        }
+
+        $limit = $request->get('limit');
+        if (empty($limit)) {
+            $limit = 10;
         }
 
         $offset = $limit * ($page - 1);
 
-
-        /* Filter elements */
-        if (isset($params['filter'])) {
-            $filter = (array)json_decode($params['filter']);
-        }
-
-        if (isset($params['datefilter'])) {
-            $datefilter = (array)json_decode($params['datefilter']);
-        }
-
-
-        if (isset($params['sort'])) {
-            $sort = $params['sort'];
-            if (isset($params['order'])) {
-                if ($params['order'] == "false") {
-                    $sort .= " desc";
-                } else {
-                    $sort .= " asc";
-                }
-
-            }
-        }
-
-
-        $query = new Query;
-        $query->offset($offset)
-            ->limit($limit)
-            ->from('comment')
-            //->andFilterWhere(['like', 'id', $filter['id']])
-            //->andFilterWhere(['like', 'name', $filter['name']])
-            //->andFilterWhere(['like', 'age', $filter['age']])
-            ->orderBy($sort)
-            ->select("*");
-
-        /*if ($datefilter['from']) {
-            $query->andWhere("createdAt >= '" . $datefilter['from'] . "' ");
-        }
-        if ($datefilter['to']) {
-            $query->andWhere("createdAt <= '" . $datefilter['to'] . "'");
-        }*/
-        $command = $query->createCommand();
-        $models = $command->queryAll();
-
-        $totalItems = $query->count();
+        $sql .= " LIMIT $offset, $limit";
+        $models = Yii::$app->db->createCommand($sql)->queryAll();
 
         $this->setHeader(200);
 
-        echo json_encode(array('status' => 1, 'data' => $models, 'totalItems' => $totalItems), JSON_UNESCAPED_UNICODE);
+        echo json_encode(array('status' => 1, 'msg' => 'Query Success', 'data' => $models, 'count' => $totalItems), JSON_UNESCAPED_UNICODE);
 
     }
 
