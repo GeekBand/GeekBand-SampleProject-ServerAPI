@@ -35,6 +35,7 @@ class PictureController extends Controller
                     'create' => ['post'],
                     'update' => ['post'],
                     'delete' => ['delete'],
+                    'read' => ['get'],
                 ],
 
             ]
@@ -123,12 +124,39 @@ class PictureController extends Controller
 
             $this->setHeader(200);
             echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
+            exit;
 
         } else {
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
+            exit;
         }
 
+    }
+
+    public function actionRead()
+    {
+        $id = Yii::$app->request->get('pic_id');
+
+        if (empty($id)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => 'no picture'), JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        $sql = "SELECT pic_link FROM picture WHERE id = $id";
+        $url = Yii::$app->db->createCommand($sql)->queryScalar();
+
+        if (empty($url)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => 'no picture'), JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        header('Content-Type: image/jpeg');
+        ob_start();//打开输出缓冲区，也就是暂时不允许输出
+        echo file_get_contents($url);//读一个文件写入到输出缓冲
+        exit;
     }
 
     protected function findModel($condition)
