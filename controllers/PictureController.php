@@ -90,15 +90,15 @@ class PictureController extends Controller
     {
         $request = Yii::$app->request;
         $userId = $request->post('user_id');
-        $longtitude = $request->post('longtitude');
+        $longitude = $request->post('longtitude');
         $latitude = $request->post('latitude');
         $data = $request->post('data');
 
-        $sql = "select id from node where geom = GeomFromText('Point($longtitude $latitude)')";
+        $sql = "select id from node where geom = GeomFromText('Point($longitude $latitude)')";
         $nodeId = Yii::$app->db->createCommand($sql)->queryScalar();
 
         if (empty($nodeId)) {
-            $createSql = "INSERT node (geom) VALUES (GeomFromText('Point($longtitude $latitude)'))";
+            $createSql = "INSERT node (geom) VALUES (GeomFromText('Point($longitude $latitude)'))";
             Yii::$app->db->createCommand($createSql)->execute();
             $nodeId = Yii::$app->db->createCommand($sql)->queryScalar();
         }
