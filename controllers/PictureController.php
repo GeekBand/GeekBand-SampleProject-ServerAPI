@@ -83,7 +83,7 @@ class PictureController extends Controller
 
         $this->setHeader(200);
         echo json_encode(array('status' => 1, 'data' => $pictures), JSON_PRETTY_PRINT);
-
+        exit;
     }
 
     public function actionCreate()
@@ -121,7 +121,6 @@ class PictureController extends Controller
 
 
         if ($model->save()) {
-
             $this->setHeader(200);
             echo json_encode(array('status' => 1, 'data' => ['node_id' => $model->node_id, 'pic_id' => $model->id]), JSON_PRETTY_PRINT);
             exit;
