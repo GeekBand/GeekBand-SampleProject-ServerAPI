@@ -217,7 +217,7 @@ class UserController extends ActiveController
             exit;
         }
 
-        $saveDir = __DIR__ . '/../web/images/avatar/';
+        $saveDir = __DIR__ . '/../images/avatar/';
         if (!file_exists($saveDir)) {
             mkdir($saveDir);
         }
