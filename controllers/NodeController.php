@@ -79,16 +79,18 @@ class NodeController extends Controller
         }
 
         $db = Yii::$app->db;
-        $sql = "SELECT id, ST_Distance_Sphere(Point($longitude $latitude), geom) distance_in_meters, tags,
-            ST_AsText(geom)
-            FROM node
-            WHERE ST_Contains( ST_MakeEnvelope(
-                    Point(($longitude+(20/111)) ($latitude+(20/111))),
-                    Point(($longitude-(20/111)) ($latitude-(20/111)))
-                 ), geom )
-            AND ST_Distance_Sphere(Point($longitude $latitude), geom) <= $distance
-            ORDER BY distance_in_meters LIMIT 10";
+//        $sql = "SELECT id, ST_Distance_Sphere(Point($longitude $latitude), geom) distance_in_meters, tags,
+//            ST_AsText(geom)
+//            FROM node
+//            WHERE ST_Contains( ST_MakeEnvelope(
+//                    Point(($longitude+(20/111)) ($latitude+(20/111))),
+//                    Point(($longitude-(20/111)) ($latitude-(20/111)))
+//                 ), geom )
+//            AND ST_Distance_Sphere(Point($longitude $latitude), geom) <= $distance
+//            ORDER BY distance_in_meters LIMIT 10";
         //            AND match(tags) against ("+thai +restaurant" IN BOOLEAN MODE)
+//        $nodes = $db->createCommand($sql)->queryAll();
+        $sql = "SELECT id, tags, ST_AsText(geom) FROM node WHERE id >= 1 AND id <= 10";
         $nodes = $db->createCommand($sql)->queryAll();
         if (empty($nodes)) {
             $this->setHeader(400);
@@ -107,7 +109,7 @@ class NodeController extends Controller
         }
 
         $nodeStr = implode(',', $nodeIds);
-        $sql = "SELECT * FROM comment WHERE node_id IN ($nodeStr)";
+        $sql = "SELECT node_id, user_id, comment FROM comment WHERE node_id IN ($nodeStr)";
         $comments = $db->createCommand($sql)->queryAll();
 
         foreach ($comments as $comment) {
@@ -115,7 +117,7 @@ class NodeController extends Controller
         }
 
         $this->setHeader(200);
-        echo json_encode(array('status' => 1, 'data' => $results, JSON_PRETTY_PRINT));
+        echo json_encode(array('status' => 1, 'data' => $results, JSON_UNESCAPED_UNICODE));
         exit;
     }
 
