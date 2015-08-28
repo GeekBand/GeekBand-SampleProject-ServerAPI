@@ -79,14 +79,14 @@ class NodeController extends Controller
         }
 
         $db = Yii::$app->db;
-        $sql = "SELECT id, ST_Distance_Sphere(Point($longitude, $latitude), geom) distance_in_meters, tags,
+        $sql = "SELECT id, ST_Distance_Sphere(Point($longitude $latitude), geom) distance_in_meters, tags,
             ST_AsText(geom)
             FROM node
             WHERE ST_Contains( ST_MakeEnvelope(
-                    Point(($longitude+(20/111)), ($latitude+(20/111))),
-                    Point(($longitude-(20/111)), ($latitude-(20/111)))
+                    Point(($longitude+(20/111)) ($latitude+(20/111))),
+                    Point(($longitude-(20/111)) ($latitude-(20/111)))
                  ), geom )
-            AND ST_Distance_Sphere(Point($longitude, $latitude), geom) <= $distance
+            AND ST_Distance_Sphere(Point($longitude $latitude), geom) <= $distance
             ORDER BY distance_in_meters LIMIT 10";
         //            AND match(tags) against ("+thai +restaurant" IN BOOLEAN MODE)
         $nodes = $db->createCommand($sql)->queryAll();

@@ -233,7 +233,7 @@ class UserController extends ActiveController
         ];
         $db->createCommand($sql, $params)->execute();
 
-        $sql = "SELECT id user_id, name user_name, email, avatar FROM user WHERE id = :userId AND avatar = :path";
+        $sql = "SELECT id user_id, name user_name, email, avatar FROM user WHERE id = :id AND avatar = :path";
         $record = $db->createCommand($sql, $params)->queryOne();
 
         if (empty($record)) {
