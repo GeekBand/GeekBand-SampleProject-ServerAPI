@@ -820,7 +820,7 @@ class DataController extends Controller
 
     public function actionNode()
     {
-        $filePath = __DIR__ . '/HuaiHaiLuIndex.txt';
+        $filePath = __DIR__ . '/ZhongShanGongYuanIndex.txt';
         $handle = fopen($filePath, 'r');
         $rows = array();
         $i = 0;
@@ -847,7 +847,7 @@ class DataController extends Controller
             if (preg_match('/\"gps\"/', $line))
             {
                 preg_match('/([\d\.]+)[^\d\.]*([\d\.]+)/', $line, $matches);
-                $rows[$i - 1]['geom'] = "GeomFromText('Point({$matches[1]} {$matches[2]})')";
+                $rows[$i - 1]['geom'] = "GeomFromText('Point({$matches[2]} {$matches[1]})')";
             }
         }
 
@@ -863,7 +863,7 @@ class DataController extends Controller
 
     public function actionComment()
     {
-        $filePath = __DIR__ . '/HuaiHaiLu.txt';
+        $filePath = __DIR__ . '/ZhongShanGongYuan.txt';
         $handle = fopen($filePath, 'r');
         $rows = array();
         $i = 0;
