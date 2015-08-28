@@ -310,7 +310,7 @@ class UserController extends ActiveController
         exit;
     }
 
-    public function actionShowAvatar()
+    public function actionShow()
     {
         $id = Yii::$app->request->get('user_id');
 
