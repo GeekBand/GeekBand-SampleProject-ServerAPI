@@ -254,47 +254,22 @@ class UserController extends ActiveController
     public function actionRename()
     {
         $request = Yii::$app->request;
-        $userName = $request->post('username');
-        $password = $request->post('password');
-        $projectName = $request->post('gbid');
+        $userId = $request->post('user_id');
+        $token = $request->post('token');
         $newName = $request->post('new_name');
 
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
         $db = Yii::$app->db;
-        if (empty($projectName)) {
-            $sql = "SELECT id, password FROM user WHERE name = :username";
-            $params = [
-                ':username' => $userName,
-            ];
-        } else {
-            $sql = "SELECT u.id, u.password
-                FROM user u
-                JOIN project p ON p.id = u.project_id
-                WHERE u.name = :username AND p.name = :projectName";
-            $params = [
-                ':username' => $userName,
-                ':projectName' => $projectName,
-            ];
-        }
-        $record = $db->createCommand($sql, $params)->queryOne();
-
-        if (empty($record)) {
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'No such user'),
-                JSON_PRETTY_PRINT);
-            exit;
-        }
-
-        if ($record['password'] != Util::hashPassword($password)) {
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid password'),
-                JSON_PRETTY_PRINT);
-            exit;
-        }
-
         $sql = "UPDATE user SET name = :name WHERE id = :userId";
         $params = [
             ':name' => $newName,
-            ':userId' => $record['id'],
+            ':userId' => $userId,
         ];
         $db->createCommand($sql, $params)->execute();
 
