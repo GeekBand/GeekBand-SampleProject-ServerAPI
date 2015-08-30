@@ -10,7 +10,6 @@ use Yii;
  * @property string $id
  * @property integer $node_id
  * @property integer $user_id
- * @property integer $project_id
  * @property string $pic_link
  * @property string $created
  * @property string $modified
@@ -31,9 +30,9 @@ class Picture extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['node_id', 'user_id', 'project_id'], 'integer'],
+            [['node_id', 'user_id'], 'integer'],
             [['created', 'modified'], 'safe'],
-            [['pic_link'], 'string', 'max' => 64]
+            [['pic_link'], 'string', 'max' => 255]
         ];
     }
 
@@ -46,7 +45,6 @@ class Picture extends \yii\db\ActiveRecord
             'id' => 'ID',
             'node_id' => 'Node ID',
             'user_id' => 'User ID',
-            'project_id' => 'Project ID',
             'pic_link' => 'Pic Link',
             'created' => 'Created',
             'modified' => 'Modified',

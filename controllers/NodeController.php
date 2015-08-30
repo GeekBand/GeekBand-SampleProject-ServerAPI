@@ -108,15 +108,15 @@ class NodeController extends Controller
             array_push($nodeIds, $node['id']);
             $results[$node['id']] = [];
             $results[$node['id']]['node'] = $node;
-            $results[$node['id']]['comments'] = [];
+            $results[$node['id']]['pic'] = [];
         }
 
         $nodeStr = implode(',', $nodeIds);
-        $sql = "SELECT node_id, user_id, comment FROM comment WHERE node_id IN ($nodeStr)";
-        $comments = $db->createCommand($sql)->queryAll();
+        $sql = "SELECT id pic_id, node_id, user_id, pic_link FROM picture WHERE node_id IN ($nodeStr)";
+        $pictures = $db->createCommand($sql)->queryAll();
 
-        foreach ($comments as $comment) {
-            array_push($results[$comment['node_id']], $comment);
+        foreach ($pictures as $picture) {
+            array_push($results[$picture['node_id']], $picture);
         }
 
         $this->setHeader(200);

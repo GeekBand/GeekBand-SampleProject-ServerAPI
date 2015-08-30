@@ -10,9 +10,8 @@ use Yii;
  * @property string $id
  * @property integer $shop_id
  * @property integer $user_id
- * @property integer $project_id
  * @property string $comment
- * @property string $pic_link
+ * @property integer $pic_id
  * @property string $created
  * @property string $modified
  */
@@ -32,10 +31,9 @@ class Comment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['shop_id', 'user_id', 'project_id'], 'integer'],
+            [['shop_id', 'user_id', 'pic_id'], 'integer'],
             [['comment'], 'string'],
-            [['created', 'modified'], 'safe'],
-            [['pic_link'], 'string', 'max' => 64]
+            [['created', 'modified'], 'safe']
         ];
     }
 
@@ -48,9 +46,8 @@ class Comment extends \yii\db\ActiveRecord
             'id' => 'ID',
             'shop_id' => 'Shop ID',
             'user_id' => 'User ID',
-            'project_id' => 'Project ID',
             'comment' => 'Comment',
-            'pic_link' => 'Pic Link',
+            'pic_id' => 'Pic ID',
             'created' => 'Created',
             'modified' => 'Modified',
         ];
