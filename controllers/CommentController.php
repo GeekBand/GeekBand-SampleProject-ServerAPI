@@ -11,16 +11,12 @@
  * Time: 上午9:19
  */
 
-//namespace app\modules\api\controllers;
 namespace app\controllers;
 
 use Yii;
 use app\models\Comment;
-//use yii\data\ActiveDataProvider;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\db\Query;
 
 class CommentController extends Controller
 {
@@ -72,9 +68,17 @@ class CommentController extends Controller
     public function actionIndex()
     {
         $request = Yii::$app->request;
+        $userId = $request->get('user_id');
+        $token = $request->get('token');
+
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
 
         $sql = "SELECT * FROM `comment` WHERE 1";
-
         $picId = $request->get('pic_id');
         if ($picId) {
             $sql .= " AND pic_id = $picId ";
@@ -217,4 +221,31 @@ class CommentController extends Controller
         );
         return (isset($codes[$status])) ? $codes[$status] : '';
     }
+
+    private function checkToken($userId, $token) {
+        if (empty($token)) {
+            return false;
+        }
+
+        if (! preg_match('/^[0-9A-F]{40}$/i', $token)) {
+            return false;
+        }
+
+        $sql = "SELECT token, expires FROM user WHERE id = :userId";
+        $params = [
+            ':userId' => $userId,
+        ];
+        $record = Yii::$app->db->createCommand($sql, $params)->queryOne();
+
+        if (empty($record)) {
+            return false;
+        }
+
+        if (time() > $record['expires']) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
