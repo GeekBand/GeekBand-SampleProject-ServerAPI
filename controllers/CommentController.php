@@ -123,12 +123,22 @@ class CommentController extends Controller
 
     public function actionView($id)
     {
+        $request = Yii::$app->request;
+        $userId = $request->get('user_id');
+        $token = $request->get('token');
+
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
 
         $model = $this->findModel($id);
 
         $this->setHeader(200);
         echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
-
+        exit;
     }
 
     public function actionCreate()
