@@ -208,39 +208,13 @@ class UserController extends ActiveController
     public function actionAvatar()
     {
         $request = Yii::$app->request;
-        $userName = $request->post('username');
-        $password = $request->post('password');
-        $projectName = $request->post('gbid');
+        $userId = $request->post('user_id');
+        $token = $request->post('token');
         $picData = $request->post('data');
 
-        $db = Yii::$app->db;
-        if (empty($projectName)) {
-            $sql = "SELECT id, password FROM user WHERE name = :username";
-            $params = [
-                ':username' => $userName,
-            ];
-        } else {
-            $sql = "SELECT u.id, u.password
-                FROM user u
-                JOIN project p ON p.id = u.project_id
-                WHERE u.name = :username AND p.name = :projectName";
-            $params = [
-                ':username' => $userName,
-                ':projectName' => $projectName,
-            ];
-        }
-        $record = $db->createCommand($sql, $params)->queryOne();
-
-        if (empty($record)) {
+        if (!$this->checkToken($userId, $token)) {
             $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'No such user'),
-                JSON_PRETTY_PRINT);
-            exit;
-        }
-
-        if ($record['password'] != Util::hashPassword($password)) {
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid password'),
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
                 JSON_PRETTY_PRINT);
             exit;
         }
@@ -249,15 +223,16 @@ class UserController extends ActiveController
         if (!file_exists($saveDir)) {
             mkdir($saveDir);
         }
-        $fileName = $saveDir . $record['id'] . '_' . time() . '.jpg';
+        $fileName = $saveDir . $userId . '_' . time() . '.jpg';
         $fp2 = fopen($fileName, 'w');
         fwrite($fp2, $picData);
         fclose($fp2);
 
+        $db = Yii::$app->db;
         $sql = "UPDATE user SET avatar = :path WHERE id = :id";
         $params = [
             ':path' => $fileName,
-            ':id' => $record['id'],
+            ':id' => $userId,
         ];
         $db->createCommand($sql, $params)->execute();
 
@@ -361,8 +336,8 @@ class UserController extends ActiveController
         }
 
         header('Content-Type: image/jpeg');
-        ob_start();//打开输出缓冲区，也就是暂时不允许输出
-        echo file_get_contents($url);//读一个文件写入到输出缓冲
+        ob_start();
+        echo file_get_contents($url);
         exit;
     }
 
@@ -390,8 +365,30 @@ class UserController extends ActiveController
         return (isset($codes[$status])) ? $codes[$status] : '';
     }
 
-    private function checkToken($token) {
-        ;
+    private function checkToken($userId, $token) {
+        if (empty($token)) {
+            return false;
+        }
+
+        if (! preg_match('/^[0-9A-F]{40}$/i', $token)) {
+            return false;
+        }
+
+        $sql = "SELECT token, expires FROM user WHERE id = :userId";
+        $params = [
+            ':userId' => $userId,
+        ];
+        $record = Yii::$app->db->createCommand($sql, $params)->queryOne();
+
+        if (empty($record)) {
+            return false;
+        }
+
+        if (time() > $record['expires']) {
+            return false;
+        }
+
+        return true;
     }
 
 }
