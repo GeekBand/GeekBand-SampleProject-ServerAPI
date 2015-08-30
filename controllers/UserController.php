@@ -14,13 +14,8 @@
 namespace app\controllers;
 
 use Yii;
-use app\components\CJson;
 use app\components\Util;
-use yii\db\Query;
-use yii\filters\auth\HttpBasicAuth;
-use yii\helpers\ArrayHelper;
 use yii\rest\ActiveController;
-use yii\web\User;
 
 class UserController extends ActiveController
 {
@@ -59,46 +54,75 @@ class UserController extends ActiveController
 
     public function actionLogin()
     {
-        $ok = 0;
-        //TODO POST
-        //$post = $_POST;
-        $post = $_REQUEST;
-        if (empty($post) or empty($post['username']) or empty($post['password'])) {
-            //TODO Unable to locate message source for category 'Global'?
-            //$msg = Yii::t('Global', 'Wrong Params');
-            $msg = 'Wrong Params';
-            //TODO class 'CJSON' not found?
-            //echo CJson::encode(compact('ok', 'msg'));
-            header("Content-Type: application/json");
-            echo json_encode(compact('ok', 'msg'));
+        $request = Yii::$app->request;
+        $username = $request->post('username');
+        $password = $request->post('password');
+
+        if (empty($username) or empty($password)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Missing params'),
+                JSON_PRETTY_PRINT);
             exit;
         }
 
-        if (empty($post['gbid'])) {
+        $db = Yii::$app->db;
+        $projectName = $request->post('gbid');
+        if (empty($projectName)) {
             $sql = "SELECT * FROM user WHERE name = :username";
             $params = [
-                ':username' => $post['username'],
+                ':username' => $username,
             ];
-            $record = Yii::$app->db->createCommand($sql, $params)->queryOne();
+            $record = $db->createCommand($sql, $params)->queryOne();
         } else {
             $sql = "SELECT * FROM user u
                 JOIN project p ON p.id = u.project_id
                 WHERE u.name = :username AND p.name = :projectName";
             $params = [
-                ':username' => $post['username'],
-                ':projectName' => $post['gbid'],
+                ':username' => $username,
+                ':projectName' => $projectName,
             ];
-            $record = Yii::$app->db->createCommand($sql, $params)->queryOne();
+            $record = $db->createCommand($sql, $params)->queryOne();
         }
 
-        if ($record['password'] == Util::hashPassword($post['password'])) {
-            $ok = 1;
-            $msg = 'Login Success';
+        if (empty($record)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'No such user'),
+                JSON_PRETTY_PRINT);
+            exit;
         }
 
-        header("Content-Type: application/json");
-        echo json_encode(compact('ok', 'msg'));
-        exit;
+        if ($record['password'] == Util::hashPassword($password)) {
+            $token = Util::generateToken($username);
+            $expires = time() + 86400;
+            $lastLogin = date('Y-m-d H:i:s');
+            $loginTimes = $record['login_times'] + 1;
+            $sql = "UPDATE user SET token = :token, expires = :expires, last_login = :lastLogin,
+                login_times = :loginTimes
+                WHERE id = :userId";
+            $params = [
+                ':token' => $token,
+                ':expires' => $expires,
+                ':lastLogin' => $lastLogin,
+                ':loginTimes' => $loginTimes,
+                ':userId' => $record['id'],
+            ];
+            $db->createCommand($sql, $params)->execute();
+
+            $data = [
+                'user_id' => $record['id'],
+                'username' => $username,
+                'token' => $token,
+                'avatar' => $record['avatar'],
+                'project_id' => $record['project_id'],
+                'last_login' => $lastLogin,
+                'login_times' => $loginTimes,
+            ];
+
+            $this->setHeader(200);
+            echo json_encode(array('status' => 1, 'data' => $data, 'message' => 'Login success'), JSON_PRETTY_PRINT);
+            exit;
+        }
+
     }
 
     public function actionRegister()
@@ -360,6 +384,10 @@ class UserController extends ActiveController
             501 => 'Not Implemented',
         );
         return (isset($codes[$status])) ? $codes[$status] : '';
+    }
+
+    private function checkToken($token) {
+        ;
     }
 
 }

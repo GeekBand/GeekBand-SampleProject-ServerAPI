@@ -30,4 +30,8 @@ class Util {
         return $password;
     }
 
+    public static function generateToken($username) {
+        return sha1(uniqid($username, true));
+    }
+
 }
