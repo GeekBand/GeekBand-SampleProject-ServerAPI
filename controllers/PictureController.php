@@ -106,12 +106,12 @@ class PictureController extends Controller
         //picture
         $img = $data;
         $save_dir = __DIR__ . '/' . $nodeId . '/';
-        if ( ! file_exists($save_dir)) {
+        if (!file_exists($save_dir)) {
             mkdir($save_dir);
         }
         $fileName = $save_dir . $userId . '_' . time() . '.jpg';
-        $fp2=fopen($fileName,'w');
-        fwrite($fp2,$img);
+        $fp2 = fopen($fileName, 'w');
+        fwrite($fp2, $img);
         fclose($fp2);
 
         $model = new Picture();
@@ -122,7 +122,8 @@ class PictureController extends Controller
 
         if ($model->save()) {
             $this->setHeader(200);
-            echo json_encode(array('status' => 1, 'data' => ['node_id' => $model->node_id, 'pic_id' => $model->id]), JSON_PRETTY_PRINT);
+            echo json_encode(array('status' => 1, 'data' => ['node_id' => $model->node_id, 'pic_id' => $model->id]),
+                JSON_PRETTY_PRINT);
             exit;
 
         } else {
@@ -152,9 +153,13 @@ class PictureController extends Controller
             exit;
         }
 
+        $basename = basename($url);
+        $urlPath = str_replace($basename, '', $url);
+        $url = $urlPath . urlencode($basename);
+
         header('Content-Type: image/jpeg');
-        ob_start();//打开输出缓冲区，也就是暂时不允许输出
-        echo file_get_contents($url);//读一个文件写入到输出缓冲
+        ob_start();
+        echo file_get_contents($url);
         exit;
     }
 
