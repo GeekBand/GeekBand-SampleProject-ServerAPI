@@ -127,77 +127,81 @@ class UserController extends ActiveController
 
     public function actionRegister()
     {
-        $ok = 0;
-        //$post = $_POST;
-        $post = $_REQUEST;
-        if (empty($post)) {
-            header("Content-Type: application/json");
-            echo json_encode(compact('ok', 'msg'));
+        $request = Yii::$app->request;
+        $username = $request->post('username');
+        $email = $request->post('email');
+        $password = $request->post('password');
+        if (empty($username) or empty($email) or empty($password)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Missing params'),
+                JSON_PRETTY_PRINT);
             exit;
         }
 
-        if (!empty($post['gbid'])) {
+        $db = Yii::$app->db;
+        $projectName = $request->post('gbid');
+        if (!empty($projectName)) {
             $sql = "SELECT id FROM project WHERE name = :projectName";
             $params = [
-                ':projectName' => $post['gbid'],
+                ':projectName' => $projectName,
             ];
-            $projectId = Yii::$app->db->createCommand($sql, $params)->queryScalar();
+            $projectId = $db->createCommand($sql, $params)->queryScalar();
         }
         if (empty($projectId)) {
             $projectId = 0;
         }
 
-        $generateString = Util::generateString(6);
-
-        if ($post['username'] && $post['email'] && $post['password']) {
-            $email = trim($post['email']);
-            if (strlen($post['password']) < 6 || strlen($post['password']) > 20) {
-                //$msg = Util::t('passwordLength');
-                $msg = 'password length';
-                header("Content-Type: application/json");
-                echo json_encode(compact('ok', 'msg'));
-                exit();
-            }
-            $password = Util::hashPassword(trim($post['password']));
-            //用户名是否注册
-            $model = new $this->modelClass;
-            $member_res = $model
-                ->find()
-                ->where('name = :name', array(':name' => $post['username']))
-                ->one();
-
-            if ($member_res) {
-                $msg = 'usernameExists';
-                header("Content-Type: application/json");
-                echo json_encode(compact('ok', 'msg'));
-                exit();
-            }
-            //邮箱是否注册
-            $member_res = $model
-                ->find()
-                ->where('email = :email', array(':email' => $post['email']))
-                ->one();
-            if ($member_res) {
-                $msg = 'emailExists';
-                header("Content-Type: application/json");
-                echo json_encode(compact('ok', 'msg'));
-                exit();
-            }
-            $userName = trim($post['username']);
-
-            $memberRegister = new $model();
-            $memberRegister->name = $userName;
-            $memberRegister->email = $email;
-            $memberRegister->password = $password;
-            $memberRegister->project_id = $projectId;
-            $memberRegister->created = date('Y-m-d H:i:s');
-            $res = $memberRegister->insert();
-            $ok = 1;
-            $msg = 'registerSuccess';
+        if (strlen($password) < 6 or strlen($password) > 20) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Password length must in [6, 20]'),
+                JSON_PRETTY_PRINT);
+            exit;
         }
 
-        header("Content-Type: application/json");
-        echo json_encode(compact('ok', 'msg'));
+        $username = trim($username);
+        $sql = "SELECT 1 FROM user WHERE name = :name";
+        $params = [
+            ':name' => $username,
+        ];
+        $usernameExist = $db->createCommand($sql, $params)->queryScalar();
+        if ($usernameExist) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Username exists'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        $email = trim($email);
+        $sql = "SELECT 1 FROM user WHERE email = :email";
+        $params = [
+            ':email' => $email,
+        ];
+        $emailExist = $db->createCommand($sql, $params)->queryScalar();
+        if ($emailExist) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Email exists'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        $password = Util::hashPassword(trim($password));
+        $sql = "INSERT user (name, password, email, project_id) VALUES (:name, :password, :email, :projectId)";
+        $params = [
+            ':name' => $username,
+            ':password' => $password,
+            ':email' => $email,
+            ':projectId' => $projectId,
+        ];
+        $db->createCommand($sql, $params)->execute();
+
+        $sql = "SELECT id user_id, name user_name, project_id FROM user WHERE name = :name";
+        $params = [
+            ':name' => $username,
+        ];
+        $data = $db->createCommand($sql, $params)->queryOne();
+
+        $this->setHeader(200);
+        echo json_encode(array('status' => 1, 'data' => $data, 'message' => 'Register success'), JSON_PRETTY_PRINT);
         exit;
     }
 
