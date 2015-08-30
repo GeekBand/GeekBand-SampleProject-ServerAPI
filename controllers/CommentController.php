@@ -75,16 +75,18 @@ class CommentController extends Controller
 
         $sql = "SELECT * FROM `comment` WHERE 1";
 
-        $node = $request->get('node');
-        if ($node) {
-            $sql .= " AND node_id = $node ";
+        $picId = $request->get('pic_id');
+        if ($picId) {
+            $sql .= " AND pic_id = $picId ";
         }
 
         $countSql = "SELECT COUNT(*) FROM `comment` WHERE 1";
-        if ($node) {
-            $countSql .= " AND node_id = $node";
+        if ($picId) {
+            $countSql .= " AND pic_id = $picId";
         }
-        $totalItems = Yii::$app->db->createCommand($countSql)->queryScalar();
+
+        $db = Yii::$app->db;
+        $totalItems = $db->createCommand($countSql)->queryScalar();
 
         $sort = $request->get('sort');
         if ($sort) {
@@ -111,9 +113,8 @@ class CommentController extends Controller
         $models = Yii::$app->db->createCommand($sql)->queryAll();
 
         $this->setHeader(200);
-
         echo json_encode(array('status' => 1, 'msg' => 'Query Success', 'data' => $models, 'count' => $totalItems), JSON_UNESCAPED_UNICODE);
-
+        exit;
     }
 
     public function actionView($id)
