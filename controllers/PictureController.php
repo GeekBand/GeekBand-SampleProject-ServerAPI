@@ -133,8 +133,18 @@ class PictureController extends Controller
 
     public function actionRead()
     {
-        $id = Yii::$app->request->get('pic_id');
+        $request = Yii::$app->request;
+        $userId = $request->get('user_id');
+        $token = $request->get('token');
 
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        $id = $request->get('pic_id');
         if (empty($id)) {
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => 'no picture'), JSON_PRETTY_PRINT);
@@ -150,6 +160,7 @@ class PictureController extends Controller
             exit;
         }
 
+        //todo 区分？
         $basename = basename($url);
         $urlPath = str_replace($basename, '', $url);
         $url = $urlPath . urlencode($basename);
