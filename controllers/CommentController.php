@@ -144,8 +144,8 @@ class CommentController extends Controller
     public function actionCreate()
     {
         $request = Yii::$app->request;
-        $userId = $request->get('user_id');
-        $token = $request->get('token');
+        $userId = $request->post('user_id');
+        $token = $request->post('token');
 
         if (!$this->checkToken($userId, $token)) {
             $this->setHeader(400);
