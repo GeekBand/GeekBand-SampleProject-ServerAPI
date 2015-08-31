@@ -29,11 +29,9 @@ class NodeController extends Controller
                     'index' => ['get'],
                     'list' => ['get'],
                 ],
-
             ]
         ];
     }
-
 
     public function beforeAction($event)
     {
@@ -64,6 +62,16 @@ class NodeController extends Controller
     public function actionList()
     {
         $request = Yii::$app->request;
+        $userId = $request->get('user_id');
+        $token = $request->get('token');
+
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
         $longitude = $request->get('longitude');
         $latitude = $request->get('latitude');
         $distance = $request->get('distance');
@@ -148,4 +156,31 @@ class NodeController extends Controller
         );
         return (isset($codes[$status])) ? $codes[$status] : '';
     }
+
+    private function checkToken($userId, $token) {
+        if (empty($token)) {
+            return false;
+        }
+
+        if (! preg_match('/^[0-9A-F]{40}$/i', $token)) {
+            return false;
+        }
+
+        $sql = "SELECT token, expires FROM user WHERE id = :userId";
+        $params = [
+            ':userId' => $userId,
+        ];
+        $record = Yii::$app->db->createCommand($sql, $params)->queryOne();
+
+        if (empty($record)) {
+            return false;
+        }
+
+        if (time() > $record['expires']) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
