@@ -83,7 +83,7 @@ class NodeController extends Controller
         }
 
         if (empty($distance)) {
-            $distance = 1;
+            $distance = 1000;
         }
 
         $db = Yii::$app->db;
