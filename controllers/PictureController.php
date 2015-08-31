@@ -11,16 +11,12 @@
  * Time: 上午9:19
  */
 
-//namespace app\modules\api\controllers;
 namespace app\controllers;
 
 use Yii;
 use app\models\Picture;
-//use yii\data\ActiveDataProvider;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\db\Query;
 
 class PictureController extends Controller
 {
@@ -37,11 +33,9 @@ class PictureController extends Controller
                     'delete' => ['delete'],
                     'read' => ['get'],
                 ],
-
             ]
         ];
     }
-
 
     public function beforeAction($event)
     {
@@ -58,12 +52,10 @@ class PictureController extends Controller
         $allowed = array_map('strtoupper', $verbs);
 
         if (!in_array($verb, $allowed)) {
-
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Method not allowed'),
                 JSON_PRETTY_PRINT);
             exit;
-
         }
 
         return true;
@@ -90,11 +82,20 @@ class PictureController extends Controller
     {
         $request = Yii::$app->request;
         $userId = $request->post('user_id');
+        $token = $request->post('token');
+
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
         $longitude = $request->post('longtitude');
         $latitude = $request->post('latitude');
         $data = $request->post('data');
 
-        $sql = "select id from node where geom = GeomFromText('Point($longitude $latitude)')";
+        $sql = "SELECT id FROM node WHERE geom = GeomFromText('Point($longitude $latitude)')";
         $nodeId = Yii::$app->db->createCommand($sql)->queryScalar();
 
         if (empty($nodeId)) {
@@ -103,7 +104,6 @@ class PictureController extends Controller
             $nodeId = Yii::$app->db->createCommand($sql)->queryScalar();
         }
 
-        //picture
         $img = $data;
         $save_dir = __DIR__ . '/' . $nodeId . '/';
         if (!file_exists($save_dir)) {
@@ -119,19 +119,16 @@ class PictureController extends Controller
         $model->user_id = $userId;
         $model->pic_link = $fileName;
 
-
         if ($model->save()) {
             $this->setHeader(200);
             echo json_encode(array('status' => 1, 'data' => ['node_id' => $model->node_id, 'pic_id' => $model->id]),
                 JSON_PRETTY_PRINT);
             exit;
-
         } else {
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
             exit;
         }
-
     }
 
     public function actionRead()
@@ -168,7 +165,6 @@ class PictureController extends Controller
         if (($model = Picture::findOne($condition)) !== null) {
             return $model;
         } else {
-
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Bad request'), JSON_PRETTY_PRINT);
             exit;
@@ -199,4 +195,31 @@ class PictureController extends Controller
         );
         return (isset($codes[$status])) ? $codes[$status] : '';
     }
+
+    private function checkToken($userId, $token) {
+        if (empty($token)) {
+            return false;
+        }
+
+        if (! preg_match('/^[0-9A-F]{40}$/i', $token)) {
+            return false;
+        }
+
+        $sql = "SELECT token, expires FROM user WHERE id = :userId";
+        $params = [
+            ':userId' => $userId,
+        ];
+        $record = Yii::$app->db->createCommand($sql, $params)->queryOne();
+
+        if (empty($record)) {
+            return false;
+        }
+
+        if (time() > $record['expires']) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
