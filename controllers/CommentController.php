@@ -159,37 +159,51 @@ class CommentController extends Controller
         $model = new Comment();
         $model->attributes = $params;
 
-
         if ($model->save()) {
             $this->setHeader(200);
             echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
             exit;
-
         } else {
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
             exit;
         }
-
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate()
     {
-        $params = $_REQUEST;
+        $request = Yii::$app->request;
+        $userId = $request->post('user_id');
+        $token = $request->post('token');
 
-        $model = $this->findModel($id);
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
 
+        $params = $_POST;
+        $commentId = $request->post('comment_id');
+        if (empty($commentId)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'No such comment'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        $model = $this->findModel($commentId);
         $model->attributes = $params;
-        if ($model->save()) {
 
+        if ($model->save()) {
             $this->setHeader(200);
             echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
-
+            exit;
         } else {
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
+            exit;
         }
-
     }
 
     public function actionDelete($id)
