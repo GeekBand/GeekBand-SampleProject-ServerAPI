@@ -143,6 +143,17 @@ class CommentController extends Controller
 
     public function actionCreate()
     {
+        $request = Yii::$app->request;
+        $userId = $request->get('user_id');
+        $token = $request->get('token');
+
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
         $params = $_POST;
 
         $model = new Comment();
@@ -150,13 +161,14 @@ class CommentController extends Controller
 
 
         if ($model->save()) {
-
             $this->setHeader(200);
             echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
+            exit;
 
         } else {
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
+            exit;
         }
 
     }
