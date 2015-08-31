@@ -206,18 +206,43 @@ class CommentController extends Controller
         }
     }
 
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        $model = $this->findModel($id);
+        $request = Yii::$app->request;
+        $userId = $request->post('user_id');
+        $token = $request->post('token');
+
+        if (!$this->checkToken($userId, $token)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        $commentId = $request->post('comment_id');
+        if (empty($commentId)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'No such comment'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
+        $model = $this->findModel($commentId);
+        if ($model->user_id != $userId) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Cannot delete this comment'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
 
         if ($model->delete()) {
             $this->setHeader(200);
             echo json_encode(array('status' => 1, 'data' => array_filter($model->attributes)), JSON_PRETTY_PRINT);
-
+            exit;
         } else {
-
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'errors' => $model->errors), JSON_PRETTY_PRINT);
+            exit;
         }
     }
 
