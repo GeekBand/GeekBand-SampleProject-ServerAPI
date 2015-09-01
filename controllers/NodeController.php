@@ -110,6 +110,13 @@ class NodeController extends Controller
             exit;
         }
 
+        //客户端要addr字符串
+        foreach ($nodes as &$node) {
+            $pos = strpos($node['tags'], 'addr');
+            $node['addr'] = str_replace('addr=', '', substr($node['tags'], $pos));
+            unset($node['tags']);
+        }
+
         $nodeIds = [];
         $results = [];
         foreach ($nodes as $node) {
