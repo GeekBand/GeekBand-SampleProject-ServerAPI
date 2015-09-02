@@ -91,7 +91,7 @@ class PictureController extends Controller
             exit;
         }
 
-        $longitude = $request->post('longtitude');
+        $longitude = $request->post('longitude');
         $latitude = $request->post('latitude');
         $data = $request->post('data');
 
