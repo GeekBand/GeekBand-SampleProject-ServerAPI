@@ -119,6 +119,7 @@ class NodeController extends Controller
             $pos = strpos($node['tags'], 'addr');
             $node['addr'] = str_replace('addr=', '', substr($node['tags'], $pos));
             unset($node['tags']);
+            unset($node['pic_count']);
         }
 
         $nodeIds = [];
