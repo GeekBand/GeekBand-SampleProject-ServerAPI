@@ -132,7 +132,7 @@ class NodeController extends Controller
         }
 
         $nodeStr = implode(',', $nodeIds);
-        $sql = "SELECT id pic_id, node_id, user_id, pic_link FROM picture WHERE node_id IN ($nodeStr)";
+        $sql = "SELECT id pic_id, node_id, user_id, title, pic_link FROM picture WHERE node_id IN ($nodeStr)";
         $pictures = $db->createCommand($sql)->queryAll();
 
         foreach ($pictures as $picture) {
