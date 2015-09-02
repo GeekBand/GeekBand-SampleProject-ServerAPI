@@ -136,7 +136,7 @@ class NodeController extends Controller
         $pictures = $db->createCommand($sql)->queryAll();
 
         foreach ($pictures as $picture) {
-            array_push($results[$picture['node_id']], $picture);
+            array_push($results[$picture['node_id']]['pic'], $picture);
         }
 
         $this->setHeader(200);
