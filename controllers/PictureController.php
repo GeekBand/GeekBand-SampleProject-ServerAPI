@@ -114,14 +114,20 @@ class PictureController extends Controller
         fwrite($fp2, $img);
         fclose($fp2);
 
+        $title = $request->post('title');
         $model = new Picture();
         $model->node_id = $nodeId;
         $model->user_id = $userId;
+        $model->title = $title;
         $model->pic_link = $fileName;
 
         if ($model->save()) {
             $this->setHeader(200);
-            echo json_encode(array('status' => 1, 'data' => ['node_id' => $model->node_id, 'pic_id' => $model->id]),
+            echo json_encode(array('status' => 1, 'data' => [
+                'node_id' => $model->node_id,
+                'pic_id' => $model->id,
+                'title' => $model->title,
+            ]),
                 JSON_PRETTY_PRINT);
             exit;
         } else {

@@ -10,6 +10,7 @@ use Yii;
  * @property string $id
  * @property integer $node_id
  * @property integer $user_id
+ * @property string $title
  * @property string $pic_link
  * @property string $created
  * @property string $modified
@@ -32,6 +33,7 @@ class Picture extends \yii\db\ActiveRecord
         return [
             [['node_id', 'user_id'], 'integer'],
             [['created', 'modified'], 'safe'],
+            [['title'], 'string', 'max' => 63],
             [['pic_link'], 'string', 'max' => 255]
         ];
     }
@@ -45,6 +47,7 @@ class Picture extends \yii\db\ActiveRecord
             'id' => 'ID',
             'node_id' => 'Node ID',
             'user_id' => 'User ID',
+            'title' => 'Title',
             'pic_link' => 'Pic Link',
             'created' => 'Created',
             'modified' => 'Modified',
