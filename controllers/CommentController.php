@@ -121,7 +121,7 @@ class CommentController extends Controller
         exit;
     }
 
-    public function actionView($id)
+    public function actionView()
     {
         $request = Yii::$app->request;
         $userId = $request->get('user_id');
