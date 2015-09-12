@@ -134,6 +134,9 @@ class NodeController extends Controller
         $pictures = $db->createCommand($sql)->queryAll();
 
         foreach ($pictures as $picture) {
+            if (strpos('/var', $picture['pic_link'])) {
+                $picture['pic_link'] = 'http://moran.chinacloudapp.cn/moran/web/picture/read?pic_id=' . $picture['pic_id'];
+            }
             array_push($results[$picture['node_id']]['pic'], $picture);
         }
 

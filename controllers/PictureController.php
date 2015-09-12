@@ -144,15 +144,15 @@ class PictureController extends Controller
     public function actionRead()
     {
         $request = Yii::$app->request;
-        $userId = $request->get('user_id');
-        $token = $request->get('token');
+//        $userId = $request->get('user_id');
+//        $token = $request->get('token');
 
-        if (!$this->checkToken($userId, $token)) {
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
-                JSON_PRETTY_PRINT);
-            exit;
-        }
+//        if (!$this->checkToken($userId, $token)) {
+//            $this->setHeader(400);
+//            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Invalid token'),
+//                JSON_PRETTY_PRINT);
+//            exit;
+//        }
 
         $id = $request->get('pic_id');
         if (empty($id)) {
