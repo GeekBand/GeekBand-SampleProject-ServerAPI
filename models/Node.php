@@ -11,6 +11,7 @@ use Yii;
  * @property integer $shop_id
  * @property string $geom
  * @property string $tags
+ * @property string $addr
  * @property string $created
  * @property string $modified
  */
@@ -33,7 +34,8 @@ class Node extends \yii\db\ActiveRecord
             [['shop_id'], 'integer'],
             [['geom'], 'required'],
             [['geom', 'tags'], 'string'],
-            [['created', 'modified'], 'safe']
+            [['created', 'modified'], 'safe'],
+            [['addr'], 'string', 'max' => 63]
         ];
     }
 
@@ -47,6 +49,7 @@ class Node extends \yii\db\ActiveRecord
             'shop_id' => 'Shop ID',
             'geom' => 'Geom',
             'tags' => 'Tags',
+            'addr' => 'Addr',
             'created' => 'Created',
             'modified' => 'Modified',
         ];

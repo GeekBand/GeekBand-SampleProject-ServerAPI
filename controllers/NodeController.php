@@ -88,7 +88,7 @@ class NodeController extends Controller
 
         $db = Yii::$app->db;
         $sql = "SELECT n.id, ST_Distance_Sphere(ST_GeomFromText('Point($longitude $latitude)'), geom) distance_in_meters,
-            tags, ST_AsText(geom), COUNT(*) pic_count
+            tags, addr, ST_AsText(geom), COUNT(*) pic_count
             FROM node n
             JOIN picture p ON n.id = p.node_id
             WHERE ST_Distance_Sphere(ST_GeomFromText('Point($longitude $latitude)'), geom) <= $distance
@@ -114,10 +114,8 @@ class NodeController extends Controller
             exit;
         }
 
-        //客户端要addr字符串
+        //客户端不要tags pic_count
         foreach ($nodes as &$node) {
-            $pos = strpos($node['tags'], 'addr');
-            $node['addr'] = str_replace('addr=', '', substr($node['tags'], $pos));
             unset($node['tags']);
             unset($node['pic_count']);
         }
