@@ -100,7 +100,7 @@ class PictureController extends Controller
 
         if (empty($nodeId)) {
             $createSql = "INSERT node (geom) VALUES (GeomFromText('Point($longitude $latitude)'))";
-            $address = $request->post('address');
+            $address = $request->post('addr');
             if ($address) {
                 $createSql = "INSERT node(geom, addr) VALUES(GeomFromText('Point($longitude $latitude)'), '$address')";
             }
