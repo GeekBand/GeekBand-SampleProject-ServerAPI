@@ -91,38 +91,42 @@ class UserController extends ActiveController
             exit;
         }
 
-        if ($record['password'] == Util::hashPassword($password)) {
-            $token = Util::generateToken($username);
-            $expires = time() + 86400;
-            $lastLogin = date('Y-m-d H:i:s');
-            $loginTimes = $record['login_times'] + 1;
-            $sql = "UPDATE user SET token = :token, expires = :expires, last_login = :lastLogin,
-                login_times = :loginTimes
-                WHERE id = :userId";
-            $params = [
-                ':token' => $token,
-                ':expires' => $expires,
-                ':lastLogin' => $lastLogin,
-                ':loginTimes' => $loginTimes,
-                ':userId' => $record['id'],
-            ];
-            $db->createCommand($sql, $params)->execute();
-
-            $data = [
-                'user_id' => $record['id'],
-                'username' => $username,
-                'token' => $token,
-                'avatar' => $record['avatar'],
-                'project_id' => $record['project_id'],
-                'last_login' => $lastLogin,
-                'login_times' => $loginTimes,
-            ];
-
-            $this->setHeader(200);
-            echo json_encode(array('status' => 1, 'data' => $data, 'message' => 'Login success'), JSON_PRETTY_PRINT);
+        if ($record['password'] != Util::hashPassword($password)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Wrong password'),
+                JSON_PRETTY_PRINT);
             exit;
         }
 
+        $token = Util::generateToken($username);
+        $expires = time() + 86400;
+        $lastLogin = date('Y-m-d H:i:s');
+        $loginTimes = $record['login_times'] + 1;
+        $sql = "UPDATE user SET token = :token, expires = :expires, last_login = :lastLogin,
+                login_times = :loginTimes
+                WHERE id = :userId";
+        $params = [
+            ':token' => $token,
+            ':expires' => $expires,
+            ':lastLogin' => $lastLogin,
+            ':loginTimes' => $loginTimes,
+            ':userId' => $record['id'],
+        ];
+        $db->createCommand($sql, $params)->execute();
+
+        $data = [
+            'user_id' => $record['id'],
+            'username' => $username,
+            'token' => $token,
+            'avatar' => $record['avatar'],
+            'project_id' => $record['project_id'],
+            'last_login' => $lastLogin,
+            'login_times' => $loginTimes,
+        ];
+
+        $this->setHeader(200);
+        echo json_encode(array('status' => 1, 'data' => $data, 'message' => 'Login success'), JSON_PRETTY_PRINT);
+        exit;
     }
 
     public function actionRegister()
