@@ -116,7 +116,7 @@ class UserController extends ActiveController
 
         $data = [
             'user_id' => $record['id'],
-            'username' => $username,
+            'user_name' => $username,
             'token' => $token,
             'avatar' => $record['avatar'],
             'project_id' => $record['project_id'],
