@@ -55,10 +55,10 @@ class UserController extends ActiveController
     public function actionLogin()
     {
         $request = Yii::$app->request;
-        $username = $request->post('username');
+        $email = $request->post('email');
         $password = $request->post('password');
 
-        if (empty($username) or empty($password)) {
+        if (empty($email) or empty($password)) {
             $this->setHeader(400);
             echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Missing params'),
                 JSON_PRETTY_PRINT);
@@ -68,17 +68,17 @@ class UserController extends ActiveController
         $db = Yii::$app->db;
         $projectName = $request->post('gbid');
         if (empty($projectName)) {
-            $sql = "SELECT * FROM user WHERE name = :username";
+            $sql = "SELECT * FROM user WHERE email = :email";
             $params = [
-                ':username' => $username,
+                ':email' => $email,
             ];
             $record = $db->createCommand($sql, $params)->queryOne();
         } else {
             $sql = "SELECT * FROM user u
                 JOIN project p ON p.id = u.project_id
-                WHERE u.name = :username AND p.name = :projectName";
+                WHERE u.email = :email AND p.name = :projectName";
             $params = [
-                ':username' => $username,
+                ':email' => $email,
                 ':projectName' => $projectName,
             ];
             $record = $db->createCommand($sql, $params)->queryOne();
@@ -98,13 +98,12 @@ class UserController extends ActiveController
             exit;
         }
 
-        $token = Util::generateToken($username);
+        $token = Util::generateToken($email);
         $expires = time() + 86400;
         $lastLogin = date('Y-m-d H:i:s');
         $loginTimes = $record['login_times'] + 1;
-        $sql = "UPDATE user SET token = :token, expires = :expires, last_login = :lastLogin,
-                login_times = :loginTimes
-                WHERE id = :userId";
+        $sql = "UPDATE user SET token = :token, expires = :expires, last_login = :lastLogin, login_times = :loginTimes
+            WHERE id = :userId";
         $params = [
             ':token' => $token,
             ':expires' => $expires,
@@ -116,7 +115,7 @@ class UserController extends ActiveController
 
         $data = [
             'user_id' => $record['id'],
-            'user_name' => $username,
+            'user_name' => $record['name'],
             'token' => $token,
             'avatar' => $record['avatar'],
             'project_id' => $record['project_id'],
@@ -162,19 +161,6 @@ class UserController extends ActiveController
             exit;
         }
 
-        $username = trim($username);
-        $sql = "SELECT 1 FROM user WHERE name = :name";
-        $params = [
-            ':name' => $username,
-        ];
-        $usernameExist = $db->createCommand($sql, $params)->queryScalar();
-        if ($usernameExist) {
-            $this->setHeader(400);
-            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Username exists'),
-                JSON_PRETTY_PRINT);
-            exit;
-        }
-
         $email = trim($email);
         $sql = "SELECT 1 FROM user WHERE email = :email";
         $params = [
@@ -188,6 +174,7 @@ class UserController extends ActiveController
             exit;
         }
 
+        $username = trim($username);
         $password = Util::hashPassword(trim($password));
         $sql = "INSERT user (name, password, email, project_id) VALUES (:name, :password, :email, :projectId)";
         $params = [
