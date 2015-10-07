@@ -87,11 +87,11 @@ class NodeController extends Controller
         }
 
         $db = Yii::$app->db;
-        $sql = "SELECT n.id, ST_Distance_Sphere(ST_GeomFromText('Point($longitude $latitude)'), geom) distance_in_meters,
+        $sql = "SELECT n.id, ST_Distance_Sphere(ST_GeomFromText('POINT($longitude $latitude)'), geom) distance_in_meters,
             tags, addr, ST_AsText(geom), COUNT(*) pic_count
             FROM node n
             JOIN picture p ON n.id = p.node_id
-            WHERE ST_Distance_Sphere(ST_GeomFromText('Point($longitude $latitude)'), geom) <= $distance
+            WHERE ST_Distance_Sphere(ST_GeomFromText('POINT($longitude $latitude)'), geom) <= $distance
             GROUP BY n.id
             HAVING pic_count > 0
             ORDER BY distance_in_meters
