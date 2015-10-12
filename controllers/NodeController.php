@@ -87,23 +87,14 @@ class NodeController extends Controller
         }
 
         $db = Yii::$app->db;
-//        $sql = "SELECT n.id, ST_Distance_Sphere(ST_GeomFromText('POINT($longitude $latitude)'), geom) distance_in_meters,
-//            tags, addr, ST_AsText(geom), COUNT(*) pic_count
-//            FROM node n
-//            JOIN picture p ON n.id = p.node_id
-//            WHERE ST_Distance_Sphere(ST_GeomFromText('POINT($longitude $latitude)'), geom) <= $distance
-//            GROUP BY n.id
-//            HAVING pic_count > 0
-//            ORDER BY distance_in_meters
-//            LIMIT 10";
-        //TODO why cannot order?
-        $sql = "SELECT n.id, FORMAT(ST_Distance_Sphere(ST_GeomFromText('POINT($longitude $latitude)'), geom), 2) distance_in_meters,
+        $sql = "SELECT n.id, ST_Distance_Sphere(ST_GeomFromText('POINT($longitude $latitude)'), geom) distance_in_meters,
             tags, addr, ST_AsText(geom), COUNT(*) pic_count
             FROM node n
             JOIN picture p ON n.id = p.node_id
             WHERE ST_Distance_Sphere(ST_GeomFromText('POINT($longitude $latitude)'), geom) <= $distance
             GROUP BY n.id
             HAVING pic_count > 0
+            ORDER BY distance_in_meters
             LIMIT 10";
         /*
          * TODO
@@ -124,14 +115,10 @@ class NodeController extends Controller
         }
 
         //客户端不要tags pic_count
-        $distances = [];
         foreach ($nodes as &$node) {
             unset($node['tags']);
             unset($node['pic_count']);
-            array_push($distances, $node['distance_in_meters']);
         }
-        //var_dump(count($distances), count($nodes));
-        array_multisort($distances, $nodes);
 
         $nodeIds = [];
         $results = [];
