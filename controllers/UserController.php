@@ -74,7 +74,7 @@ class UserController extends ActiveController
             ];
             $record = $db->createCommand($sql, $params)->queryOne();
         } else {
-            $sql = "SELECT * FROM user u
+            $sql = "SELECT *, u.name FROM user u
                 JOIN project p ON p.id = u.project_id
                 WHERE u.email = :email AND p.name = :projectName";
             $params = [
