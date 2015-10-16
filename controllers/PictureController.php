@@ -95,6 +95,27 @@ class PictureController extends Controller
         $latitude = $request->post('latitude');
         $data = $request->post('data');
 
+        if (empty($longitude) OR empty($latitude)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => 'Wrong params'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+        if (!is_numeric($longitude) OR $longitude <= -180 OR $longitude > 180) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400,
+                'message' => 'Longitude values must be in the range (-180, 180].'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+        if (!is_numeric($latitude) OR $latitude < -90 OR $latitude > 90) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400,
+                'message' => 'Latitude values must be in the range [-90, 90].'),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
+
         $sql = "SELECT id FROM node WHERE geom = GeomFromText('Point($longitude $latitude)')";
         $nodeId = Yii::$app->db->createCommand($sql)->queryScalar();
 
