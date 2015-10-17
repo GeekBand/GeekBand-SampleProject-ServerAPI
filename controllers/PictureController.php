@@ -120,11 +120,14 @@ class PictureController extends Controller
         $nodeId = Yii::$app->db->createCommand($sql)->queryScalar();
 
         if (empty($nodeId)) {
-            $createSql = "INSERT node (geom) VALUES (GeomFromText('Point($longitude $latitude)'))";
             $address = $request->post('addr');
-            if ($address) {
-                $createSql = "INSERT node(geom, addr) VALUES(GeomFromText('Point($longitude $latitude)'), '$address')";
+            if (empty($address)) {
+                $this->setHeader(400);
+                echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => "Address shouldn't be empty."),
+                    JSON_PRETTY_PRINT);
+                exit;
             }
+            $createSql = "INSERT node(geom, addr) VALUES(GeomFromText('Point($longitude $latitude)'), '$address')";
             Yii::$app->db->createCommand($createSql)->execute();
             $nodeId = Yii::$app->db->createCommand($sql)->queryScalar();
         }
