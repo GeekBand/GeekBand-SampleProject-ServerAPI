@@ -143,6 +143,12 @@ class PictureController extends Controller
         fclose($fp2);
 
         $title = $request->post('title');
+        if (empty($title)) {
+            $this->setHeader(400);
+            echo json_encode(array('status' => 0, 'error_code' => 400, 'message' => "Picture should have a title."),
+                JSON_PRETTY_PRINT);
+            exit;
+        }
         $model = new Picture();
         $model->node_id = $nodeId;
         $model->user_id = $userId;
